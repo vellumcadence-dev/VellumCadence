@@ -5,340 +5,344 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VellumCadence — AI Content Company</title>
   <meta name="description" content="AI-контент и нейровизуализация для бизнеса. Создаём систему внимания, которая превращает просмотры в заявки.">
+  <meta name="theme-color" content="#050508">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Noise overlay -->
-  <div class="noise-overlay"></div>
 
-  <!-- Floating geometric shapes -->
-  <div class="geo-shapes" aria-hidden="true">
-    <div class="geo geo-1"></div>
-    <div class="geo geo-2"></div>
-    <div class="geo geo-3"></div>
-    <div class="geo geo-4"></div>
-    <div class="geo geo-5"></div>
-    <div class="geo geo-6"></div>
+  <!-- Noise + Grid overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Floating orbs -->
+  <div class="orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
+
+  <!-- Cursor glow (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <span class="logo-v">Vellum</span><span class="logo-c">Cadence</span>
+        <span class="logo-mark">VC</span>
+        <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
       </a>
-      <button class="burger" id="burger" aria-label="Меню">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#pain" data-i18n="nav.problem">Проблема</a></li>
+        <li><a href="#solution" data-i18n="nav.solution">Решение</a></li>
+        <li><a href="#funnel" data-i18n="nav.funnel">Воронка</a></li>
+        <li><a href="#packages" data-i18n="nav.packages">Пакеты</a></li>
+        <li><a href="#process" data-i18n="nav.process">Процесс</a></li>
+        <li><a href="#cta" class="nav-cta" data-i18n="nav.contact">Связаться</a></li>
+      </ul>
+      <!-- Language switcher -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-current" id="langBtn" aria-label="Language">
+          <span id="langLabel">RU</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="lang-dropdown" id="langDropdown">
+          <li><button data-lang="ru">RU</button></li>
+          <li><button data-lang="en">EN</button></li>
+          <li><button data-lang="uk">UA</button></li>
+          <li><button data-lang="nl">NL</button></li>
+          <li><button data-lang="de">DE</button></li>
+        </ul>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#pain">Проблема</a></li>
-        <li><a href="#solution">Решение</a></li>
-        <li><a href="#funnel">Воронка</a></li>
-        <li><a href="#packages">Пакеты</a></li>
-        <li><a href="#results">Результат</a></li>
-        <li><a href="#process">Процесс</a></li>
-        <li><a href="#cta" class="nav-cta">Связаться</a></li>
-      </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ====== HERO ====== -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-badge anim-fade">AI Content Company</div>
-      <h1 class="hero-title anim-fade">
-        Ваш бизнес теряет клиентов не&nbsp;из-за продукта&nbsp;&mdash; а&nbsp;из-за того, что контент <span class="gradient-text">не&nbsp;цепляет внимание</span> в&nbsp;первые 1&ndash;2&nbsp;секунды.
+    <div class="hero-inner">
+      <div class="hero-tag anim" data-i18n="hero.tag">AI Content Company</div>
+      <h1 class="hero-title anim">
+        <span data-i18n="hero.title1">Ваш бизнес теряет клиентов</span><br>
+        <span data-i18n="hero.title2">не из-за продукта —</span><br>
+        <span class="hero-highlight" data-i18n="hero.title3">а из-за невидимого контента.</span>
       </h1>
-      <p class="hero-sub anim-fade">
-        Мы создаём AI-контент и&nbsp;нейровизуализацию, которые останавливают скролл и&nbsp;превращают просмотры в&nbsp;заявки.
-      </p>
-      <a href="#packages" class="btn btn-primary anim-fade">Выбрать пакет</a>
-    </div>
-    <div class="hero-3d" aria-hidden="true">
-      <div class="hero-cube">
-        <div class="cube-face front"></div>
-        <div class="cube-face back"></div>
-        <div class="cube-face left"></div>
-        <div class="cube-face right"></div>
-        <div class="cube-face top"></div>
-        <div class="cube-face bottom"></div>
+      <p class="hero-sub anim" data-i18n="hero.sub">Мы создаём AI-контент и нейровизуализацию, которые останавливают скролл и превращают просмотры в заявки.</p>
+      <div class="hero-ctas anim">
+        <a href="#packages" class="btn btn-glow" data-i18n="hero.cta">Выбрать пакет</a>
+        <a href="#solution" class="btn btn-ghost" data-i18n="hero.cta2">Как это работает</a>
+      </div>
+      <div class="hero-metrics anim">
+        <div class="metric">
+          <span class="metric-val">&lt;2s</span>
+          <span class="metric-label" data-i18n="hero.m1">На захват внимания</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-val">AI</span>
+          <span class="metric-label" data-i18n="hero.m2">Генерация контента</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <span class="metric-val">24/7</span>
+          <span class="metric-label" data-i18n="hero.m3">Системный ритм</span>
+        </div>
       </div>
     </div>
-    <div class="hero-scroll-hint anim-fade">
-      <div class="scroll-line"></div>
+    <!-- Animated lines -->
+    <div class="hero-lines" aria-hidden="true">
+      <div class="h-line h-line-1"></div>
+      <div class="h-line h-line-2"></div>
+      <div class="h-line h-line-3"></div>
     </div>
   </section>
 
-  <!-- PAIN -->
-  <section class="section pain" id="pain">
+  <!-- ====== PAIN ====== -->
+  <section class="section" id="pain">
     <div class="container">
-      <div class="section-label anim-fade">Проблема</div>
-      <h2 class="section-title anim-fade">Почему контент <span class="gradient-text">не&nbsp;работает?</span></h2>
-      <p class="section-desc anim-fade">Сегодня люди перегружены информацией. Большинство постов и&nbsp;видео просто &laquo;пролетают мимо&raquo;.</p>
+      <div class="section-header">
+        <span class="tag anim" data-i18n="pain.tag">Проблема</span>
+        <h2 class="section-title anim" data-i18n="pain.title">Почему ваш контент не работает?</h2>
+        <p class="section-sub anim" data-i18n="pain.sub">Люди перегружены информацией. Большинство постов просто пролетают мимо.</p>
+      </div>
       <div class="pain-grid">
-        <div class="glass-card tilt-card anim-fade">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="url(#g1)" stroke-width="2"/><path d="M16 24h16M24 16v16" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#a855f7"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs></svg>
-          </div>
-          <h3>Нет сильного визуального крючка</h3>
-          <p>Контент не&nbsp;останавливает скролл &mdash; пользователь пролетает мимо за&nbsp;доли секунды.</p>
+        <div class="pain-card glass anim">
+          <div class="pain-num">01</div>
+          <h3 data-i18n="pain.c1.title">Нет визуального крючка</h3>
+          <p data-i18n="pain.c1.text">Контент не останавливает скролл — пользователь пролетает мимо за доли секунды.</p>
         </div>
-        <div class="glass-card tilt-card anim-fade">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="url(#g2)" stroke-width="2"/><path d="M18 24h12" stroke="url(#g2)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#a855f7"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs></svg>
-          </div>
-          <h3>Контент выглядит как у&nbsp;всех</h3>
-          <p>Шаблонные визуалы теряются в&nbsp;ленте. Бренд не&nbsp;запоминается и&nbsp;не выделяется.</p>
+        <div class="pain-card glass anim">
+          <div class="pain-num">02</div>
+          <h3 data-i18n="pain.c2.title">Выглядит как у всех</h3>
+          <p data-i18n="pain.c2.text">Шаблонные визуалы теряются в ленте. Бренд не запоминается и не выделяется.</p>
         </div>
-        <div class="glass-card tilt-card anim-fade">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M24 8v32M14 18l10-10 10 10" stroke="url(#g3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="g3" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#a855f7"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs></svg>
-          </div>
-          <h3>Публикации нерегулярные</h3>
-          <p>Без ритма нет узнаваемости. Аудитория забывает о&nbsp;вас между редкими постами.</p>
+        <div class="pain-card glass anim">
+          <div class="pain-num">03</div>
+          <h3 data-i18n="pain.c3.title">Нет регулярности</h3>
+          <p data-i18n="pain.c3.text">Без ритма нет узнаваемости. Аудитория забывает о вас между редкими постами.</p>
         </div>
-        <div class="glass-card tilt-card anim-fade">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="url(#g4)" stroke-width="2" stroke-dasharray="4 4"/><circle cx="24" cy="24" r="6" fill="url(#g4)"/><defs><linearGradient id="g4" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#a855f7"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs></svg>
-          </div>
-          <h3>Нет системы удержания внимания</h3>
-          <p>Контент не&nbsp;ведёт к&nbsp;действию. Нет воронки, которая прогревает и&nbsp;продаёт.</p>
+        <div class="pain-card glass anim">
+          <div class="pain-num">04</div>
+          <h3 data-i18n="pain.c4.title">Нет системы</h3>
+          <p data-i18n="pain.c4.text">Контент не ведёт к действию. Нет воронки, которая прогревает и продаёт.</p>
         </div>
       </div>
-      <div class="pain-conclusion glass-card anim-fade">
-        <p>Бизнес теряет не&nbsp;только охваты&nbsp;&mdash; он&nbsp;теряет потенциальных клиентов, доверие и&nbsp;продажи.</p>
+      <div class="pain-bottom glass anim">
+        <p data-i18n="pain.conclusion">Бизнес теряет не только охваты — он теряет клиентов, доверие и продажи.</p>
       </div>
     </div>
   </section>
 
-  <!-- SOLUTION -->
-  <section class="section solution" id="solution">
+  <!-- ====== SOLUTION ====== -->
+  <section class="section section-alt" id="solution">
     <div class="container">
-      <div class="section-label anim-fade">Решение</div>
-      <h2 class="section-title anim-fade">Мы создаём <span class="gradient-text">систему внимания</span></h2>
-      <p class="section-desc anim-fade">VellumCadence&nbsp;&mdash; это не&nbsp;просто контент. Это чистый, управляемый ритм, который делает рост предсказуемым.</p>
-      <div class="solution-grid">
-        <div class="solution-card glass-card tilt-card anim-fade">
-          <div class="solution-shape shape-speed" aria-hidden="true"></div>
-          <h3>Скорость производства</h3>
-          <p>AI-генерация позволяет создавать контент быстро, регулярно и&nbsp;масштабируемо&nbsp;&mdash; без долгих съёмок.</p>
-        </div>
-        <div class="solution-card glass-card tilt-card anim-fade">
-          <div class="solution-shape shape-visual" aria-hidden="true"></div>
-          <h3>Визуальная новизна</h3>
-          <p>Нейровизуализация создаёт визуалы, которые цепляют взгляд и&nbsp;вызывают интерес&nbsp;&mdash; не&nbsp;шаблоны.</p>
-        </div>
-        <div class="solution-card glass-card tilt-card anim-fade">
-          <div class="solution-shape shape-logic" aria-hidden="true"></div>
-          <h3>Маркетинговая логика</h3>
-          <p>Каждый материал работает на&nbsp;конкретную задачу: внимание, доверие или действие.</p>
-        </div>
+      <div class="section-header">
+        <span class="tag anim" data-i18n="sol.tag">Решение</span>
+        <h2 class="section-title anim" data-i18n="sol.title">Мы создаём систему внимания</h2>
+        <p class="section-sub anim" data-i18n="sol.sub">VellumCadence — это не просто контент. Это управляемый ритм, который делает рост предсказуемым.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- FUNNEL -->
-  <section class="section funnel" id="funnel">
-    <div class="container">
-      <div class="section-label anim-fade">Воронка</div>
-      <h2 class="section-title anim-fade">Как контент <span class="gradient-text">работает в&nbsp;связке</span></h2>
-      <p class="section-desc anim-fade">Это не&nbsp;хаотичные публикации&nbsp;&mdash; а&nbsp;контент-воронка внутри соцсетей.</p>
-      <div class="funnel-vis">
-        <div class="funnel-step anim-fade" data-step="1">
-          <div class="funnel-bar" style="--w:100%">
-            <div class="funnel-bar-inner"></div>
+      <div class="sol-grid">
+        <div class="sol-card glass tilt-card anim">
+          <div class="sol-icon">
+            <div class="sol-shape shape-1"></div>
           </div>
-          <div class="funnel-info">
-            <span class="funnel-num">01</span>
-            <h3>Reels / креативы</h3>
-            <p>Охват и&nbsp;привлечение новой аудитории</p>
-          </div>
+          <div class="sol-label mono" data-i18n="sol.c1.label">speed.ai</div>
+          <h3 data-i18n="sol.c1.title">Скорость AI</h3>
+          <p data-i18n="sol.c1.text">AI-генерация позволяет создавать контент быстро, регулярно и масштабируемо — без долгих съёмок.</p>
         </div>
-        <div class="funnel-step anim-fade" data-step="2">
-          <div class="funnel-bar" style="--w:80%">
-            <div class="funnel-bar-inner"></div>
+        <div class="sol-card glass tilt-card anim">
+          <div class="sol-icon">
+            <div class="sol-shape shape-2"></div>
           </div>
-          <div class="funnel-info">
-            <span class="funnel-num">02</span>
-            <h3>Карусели / карточки</h3>
-            <p>Объяснение пользы продукта и&nbsp;услуги</p>
-          </div>
+          <div class="sol-label mono" data-i18n="sol.c2.label">neuro.vis</div>
+          <h3 data-i18n="sol.c2.title">Нейровизуализация</h3>
+          <p data-i18n="sol.c2.text">Визуалы, которые цепляют взгляд и вызывают интерес. Не шаблоны — а уникальный стиль.</p>
         </div>
-        <div class="funnel-step anim-fade" data-step="3">
-          <div class="funnel-bar" style="--w:60%">
-            <div class="funnel-bar-inner"></div>
+        <div class="sol-card glass tilt-card anim">
+          <div class="sol-icon">
+            <div class="sol-shape shape-3"></div>
           </div>
-          <div class="funnel-info">
-            <span class="funnel-num">03</span>
-            <h3>Отзывы / до-после</h3>
-            <p>Доверие, кейсы и&nbsp;социальное доказательство</p>
-          </div>
-        </div>
-        <div class="funnel-step anim-fade" data-step="4">
-          <div class="funnel-bar" style="--w:40%">
-            <div class="funnel-bar-inner"></div>
-          </div>
-          <div class="funnel-info">
-            <span class="funnel-num">04</span>
-            <h3>Прогрев к&nbsp;покупке</h3>
-            <p>Готовность написать, оставить заявку, купить</p>
-          </div>
+          <div class="sol-label mono" data-i18n="sol.c3.label">logic.mkt</div>
+          <h3 data-i18n="sol.c3.title">Маркетинговая логика</h3>
+          <p data-i18n="sol.c3.text">Каждый материал работает на конкретную задачу: внимание, доверие или действие.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PACKAGES -->
-  <section class="section packages" id="packages">
+  <!-- ====== FUNNEL ====== -->
+  <section class="section" id="funnel">
     <div class="container">
-      <div class="section-label anim-fade">Пакеты</div>
-      <h2 class="section-title anim-fade">Ежемесячные пакеты <span class="gradient-text">контента</span></h2>
-      <p class="section-desc anim-fade">Выберите формат, который подходит вашему бизнесу.</p>
-      <div class="packages-grid" style="perspective:1000px">
-        <div class="package-card glass-card tilt-card anim-fade">
-          <div class="package-tier">Lite</div>
-          <div class="package-price"><span class="price-num">590</span><span class="price-cur">&euro;/мес</span></div>
-          <ul class="package-features">
-            <li>5 Reels (10&ndash;25 сек)</li>
-            <li>7 визуалов</li>
-            <li class="feature-total">12 единиц / месяц</li>
+      <div class="section-header">
+        <span class="tag anim" data-i18n="fun.tag">Воронка</span>
+        <h2 class="section-title anim" data-i18n="fun.title">Контент-воронка внутри соцсетей</h2>
+        <p class="section-sub anim" data-i18n="fun.sub">Это не хаотичные публикации — а система, которая ведёт к продаже.</p>
+      </div>
+      <div class="funnel-wrap">
+        <div class="funnel-step anim" data-width="100">
+          <div class="funnel-bar"><div class="funnel-fill"></div></div>
+          <div class="funnel-content">
+            <span class="mono funnel-num">01</span>
+            <h3 data-i18n="fun.s1.title">Reels / креативы</h3>
+            <p data-i18n="fun.s1.text">Охват и привлечение новой аудитории</p>
+          </div>
+        </div>
+        <div class="funnel-step anim" data-width="78">
+          <div class="funnel-bar"><div class="funnel-fill"></div></div>
+          <div class="funnel-content">
+            <span class="mono funnel-num">02</span>
+            <h3 data-i18n="fun.s2.title">Карусели / карточки</h3>
+            <p data-i18n="fun.s2.text">Объяснение пользы продукта</p>
+          </div>
+        </div>
+        <div class="funnel-step anim" data-width="56">
+          <div class="funnel-bar"><div class="funnel-fill"></div></div>
+          <div class="funnel-content">
+            <span class="mono funnel-num">03</span>
+            <h3 data-i18n="fun.s3.title">Отзывы / до-после</h3>
+            <p data-i18n="fun.s3.text">Доверие и социальное доказательство</p>
+          </div>
+        </div>
+        <div class="funnel-step anim" data-width="36">
+          <div class="funnel-bar"><div class="funnel-fill"></div></div>
+          <div class="funnel-content">
+            <span class="mono funnel-num">04</span>
+            <h3 data-i18n="fun.s4.title">Прогрев к покупке</h3>
+            <p data-i18n="fun.s4.text">Готовность написать, оставить заявку, купить</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PACKAGES ====== -->
+  <section class="section section-alt" id="packages">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag anim" data-i18n="pkg.tag">Пакеты</span>
+        <h2 class="section-title anim" data-i18n="pkg.title">Ежемесячные пакеты контента</h2>
+        <p class="section-sub anim" data-i18n="pkg.sub">Выберите формат, который подходит вашему бизнесу.</p>
+      </div>
+      <div class="pkg-grid">
+        <div class="pkg-card glass tilt-card anim">
+          <div class="pkg-tier mono">Lite</div>
+          <div class="pkg-price"><span class="pkg-amount">590</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">мес</span></span></div>
+          <ul class="pkg-list">
+            <li><span class="pkg-val">5</span> <span data-i18n="pkg.reels">Reels (10–25 сек)</span></li>
+            <li><span class="pkg-val">7</span> <span data-i18n="pkg.visuals">визуалов</span></li>
+            <li class="pkg-total"><span class="pkg-val">12</span> <span data-i18n="pkg.total">единиц / месяц</span></li>
           </ul>
-          <a href="#cta" class="btn btn-outline">Выбрать</a>
+          <a href="#cta" class="btn btn-ghost pkg-btn" data-i18n="pkg.select">Выбрать</a>
         </div>
-        <div class="package-card glass-card tilt-card popular anim-fade">
-          <div class="popular-badge">Популярный</div>
-          <div class="package-tier">Pro</div>
-          <div class="package-price"><span class="price-num">1 090</span><span class="price-cur">&euro;/мес</span></div>
-          <ul class="package-features">
-            <li>10 Reels (10&ndash;25 сек)</li>
-            <li>16 визуалов</li>
-            <li class="feature-total">26 единиц / месяц</li>
+        <div class="pkg-card pkg-popular glass tilt-card anim">
+          <div class="pkg-badge" data-i18n="pkg.popular">Популярный</div>
+          <div class="pkg-tier mono">Pro</div>
+          <div class="pkg-price"><span class="pkg-amount">1 090</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">мес</span></span></div>
+          <ul class="pkg-list">
+            <li><span class="pkg-val">10</span> <span data-i18n="pkg.reels">Reels (10–25 сек)</span></li>
+            <li><span class="pkg-val">16</span> <span data-i18n="pkg.visuals">визуалов</span></li>
+            <li class="pkg-total"><span class="pkg-val">26</span> <span data-i18n="pkg.total">единиц / месяц</span></li>
           </ul>
-          <a href="#cta" class="btn btn-primary">Выбрать</a>
+          <a href="#cta" class="btn btn-glow pkg-btn" data-i18n="pkg.select">Выбрать</a>
         </div>
-        <div class="package-card glass-card tilt-card anim-fade">
-          <div class="package-tier">Premium</div>
-          <div class="package-price"><span class="price-num">1 990</span><span class="price-cur">&euro;/мес</span></div>
-          <ul class="package-features">
-            <li>25 Reels (10&ndash;25 сек)</li>
-            <li>25 визуалов</li>
-            <li class="feature-total">50 единиц / месяц</li>
+        <div class="pkg-card glass tilt-card anim">
+          <div class="pkg-tier mono">Premium</div>
+          <div class="pkg-price"><span class="pkg-amount">1 990</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">мес</span></span></div>
+          <ul class="pkg-list">
+            <li><span class="pkg-val">25</span> <span data-i18n="pkg.reels">Reels (10–25 сек)</span></li>
+            <li><span class="pkg-val">25</span> <span data-i18n="pkg.visuals">визуалов</span></li>
+            <li class="pkg-total"><span class="pkg-val">50</span> <span data-i18n="pkg.total">единиц / месяц</span></li>
           </ul>
-          <a href="#cta" class="btn btn-outline">Выбрать</a>
+          <a href="#cta" class="btn btn-ghost pkg-btn" data-i18n="pkg.select">Выбрать</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS -->
-  <section class="section results" id="results">
+  <!-- ====== RESULTS ====== -->
+  <section class="section" id="results">
     <div class="container">
-      <div class="section-label anim-fade">Результат</div>
-      <h2 class="section-title anim-fade">На что влияет <span class="gradient-text">наша работа</span></h2>
-      <p class="section-desc anim-fade">Мы усиливаем самый дефицитный ресурс&nbsp;&mdash; внимание аудитории.</p>
-      <div class="results-grid">
-        <div class="result-item glass-card anim-fade">
-          <div class="result-bar-wrap">
-            <div class="result-bar" data-value="95"></div>
-          </div>
-          <h3>Удержание внимания</h3>
-        </div>
-        <div class="result-item glass-card anim-fade">
-          <div class="result-bar-wrap">
-            <div class="result-bar" data-value="88"></div>
-          </div>
-          <h3>Вовлечённость</h3>
-        </div>
-        <div class="result-item glass-card anim-fade">
-          <div class="result-bar-wrap">
-            <div class="result-bar" data-value="92"></div>
-          </div>
-          <h3>Узнаваемость бренда</h3>
-        </div>
-        <div class="result-item glass-card anim-fade">
-          <div class="result-bar-wrap">
-            <div class="result-bar" data-value="85"></div>
-          </div>
-          <h3>Доверие к&nbsp;бизнесу</h3>
-        </div>
-        <div class="result-item glass-card anim-fade">
-          <div class="result-bar-wrap">
-            <div class="result-bar" data-value="90"></div>
-          </div>
-          <h3>Интерес к&nbsp;продукту</h3>
-        </div>
-        <div class="result-item glass-card anim-fade">
-          <div class="result-bar-wrap">
-            <div class="result-bar" data-value="80"></div>
-          </div>
-          <h3>Готовность купить</h3>
-        </div>
+      <div class="section-header">
+        <span class="tag anim" data-i18n="res.tag">Результат</span>
+        <h2 class="section-title anim" data-i18n="res.title">На что влияет наша работа</h2>
+        <p class="section-sub anim" data-i18n="res.sub">Мы усиливаем самый дефицитный ресурс — внимание аудитории.</p>
+      </div>
+      <div class="res-grid">
+        <div class="res-item glass anim" data-value="95"><div class="res-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="res-ring-bg"/><circle cx="60" cy="60" r="52" class="res-ring-fill"/></svg><span class="res-pct">95%</span></div><h3 data-i18n="res.r1">Удержание внимания</h3></div>
+        <div class="res-item glass anim" data-value="88"><div class="res-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="res-ring-bg"/><circle cx="60" cy="60" r="52" class="res-ring-fill"/></svg><span class="res-pct">88%</span></div><h3 data-i18n="res.r2">Вовлечённость</h3></div>
+        <div class="res-item glass anim" data-value="92"><div class="res-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="res-ring-bg"/><circle cx="60" cy="60" r="52" class="res-ring-fill"/></svg><span class="res-pct">92%</span></div><h3 data-i18n="res.r3">Узнаваемость бренда</h3></div>
+        <div class="res-item glass anim" data-value="85"><div class="res-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="res-ring-bg"/><circle cx="60" cy="60" r="52" class="res-ring-fill"/></svg><span class="res-pct">85%</span></div><h3 data-i18n="res.r4">Доверие к бизнесу</h3></div>
+        <div class="res-item glass anim" data-value="90"><div class="res-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="res-ring-bg"/><circle cx="60" cy="60" r="52" class="res-ring-fill"/></svg><span class="res-pct">90%</span></div><h3 data-i18n="res.r5">Интерес к продукту</h3></div>
+        <div class="res-item glass anim" data-value="80"><div class="res-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="res-ring-bg"/><circle cx="60" cy="60" r="52" class="res-ring-fill"/></svg><span class="res-pct">80%</span></div><h3 data-i18n="res.r6">Готовность купить</h3></div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="section process" id="process">
+  <!-- ====== PROCESS ====== -->
+  <section class="section section-alt" id="process">
     <div class="container">
-      <div class="section-label anim-fade">Процесс</div>
-      <h2 class="section-title anim-fade">Просто и <span class="gradient-text">прозрачно</span></h2>
-      <p class="section-desc anim-fade">5 этапов от&nbsp;брифа до&nbsp;готового контента.</p>
-      <div class="timeline">
-        <div class="timeline-line" aria-hidden="true"></div>
-        <div class="timeline-step anim-fade">
-          <div class="timeline-dot"><span>1</span></div>
-          <div class="timeline-content glass-card">
-            <h3>Короткий бриф</h3>
-            <p>Ниша, продукт, целевая аудитория, задачи</p>
+      <div class="section-header">
+        <span class="tag anim" data-i18n="proc.tag">Процесс</span>
+        <h2 class="section-title anim" data-i18n="proc.title">5 шагов к результату</h2>
+        <p class="section-sub anim" data-i18n="proc.sub">Просто и прозрачно — от брифа до готового контента.</p>
+      </div>
+      <div class="proc-timeline">
+        <div class="proc-line" aria-hidden="true"></div>
+        <div class="proc-step anim">
+          <div class="proc-dot"><span>1</span></div>
+          <div class="proc-card glass">
+            <h3 data-i18n="proc.s1.title">Бриф</h3>
+            <p data-i18n="proc.s1.text">Ниша, продукт, целевая аудитория, задачи</p>
           </div>
         </div>
-        <div class="timeline-step anim-fade">
-          <div class="timeline-dot"><span>2</span></div>
-          <div class="timeline-content glass-card">
-            <h3>Контент-направление</h3>
-            <p>Визуальный стиль и&nbsp;контент-стратегия</p>
+        <div class="proc-step anim">
+          <div class="proc-dot"><span>2</span></div>
+          <div class="proc-card glass">
+            <h3 data-i18n="proc.s2.title">Стратегия</h3>
+            <p data-i18n="proc.s2.text">Контент-направление и визуальный стиль</p>
           </div>
         </div>
-        <div class="timeline-step anim-fade">
-          <div class="timeline-dot"><span>3</span></div>
-          <div class="timeline-content glass-card">
-            <h3>Создание контента</h3>
-            <p>AI-генерация + нейровизуализация</p>
+        <div class="proc-step anim">
+          <div class="proc-dot"><span>3</span></div>
+          <div class="proc-card glass">
+            <h3 data-i18n="proc.s3.title">Создание</h3>
+            <p data-i18n="proc.s3.text">AI-генерация + нейровизуализация</p>
           </div>
         </div>
-        <div class="timeline-step anim-fade">
-          <div class="timeline-dot"><span>4</span></div>
-          <div class="timeline-content glass-card">
-            <h3>Согласование</h3>
-            <p>Правки и&nbsp;утверждение материалов</p>
+        <div class="proc-step anim">
+          <div class="proc-dot"><span>4</span></div>
+          <div class="proc-card glass">
+            <h3 data-i18n="proc.s4.title">Согласование</h3>
+            <p data-i18n="proc.s4.text">Правки и утверждение материалов</p>
           </div>
         </div>
-        <div class="timeline-step anim-fade">
-          <div class="timeline-dot"><span>5</span></div>
-          <div class="timeline-content glass-card">
-            <h3>Передача материалов</h3>
-            <p>Готовый контент и&nbsp;публикационный план</p>
+        <div class="proc-step anim">
+          <div class="proc-dot"><span>5</span></div>
+          <div class="proc-card glass">
+            <h3 data-i18n="proc.s5.title">Запуск</h3>
+            <p data-i18n="proc.s5.text">Готовый контент и публикационный план</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ====== CTA ====== -->
   <section class="section cta-section" id="cta">
     <div class="container">
-      <div class="cta-box glass-card anim-fade">
-        <h2 class="cta-title">Мы берём на&nbsp;себя креатив и&nbsp;производство, чтобы вы&nbsp;могли <span class="gradient-text">сфокусироваться на&nbsp;бизнесе.</span></h2>
-        <p class="cta-desc">Напишите нам, и&nbsp;мы предложим структуру контента под&nbsp;ваш бизнес на&nbsp;30&nbsp;дней.</p>
+      <div class="cta-box glass anim">
+        <h2 class="cta-title" data-i18n="cta.title">Мы берём на себя креатив, чтобы вы сфокусировались на бизнесе.</h2>
+        <p class="cta-sub" data-i18n="cta.sub">Напишите нам — предложим структуру контента под ваш бизнес на 30 дней.</p>
         <div class="cta-contacts">
-          <a href="tel:+31625225150" class="cta-contact-item">
+          <a href="tel:+31625225150" class="cta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             +31 6 25225150
           </a>
-          <a href="mailto:vellumcadence@gmail.com" class="cta-contact-item">
+          <a href="mailto:vellumcadence@gmail.com" class="cta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
             vellumcadence@gmail.com
           </a>
@@ -364,8 +368,8 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-logo"><span class="logo-v">Vellum</span><span class="logo-c">Cadence</span></span>
-      <span class="footer-copy">&copy; 2026 VellumCadence. AI Content Company.</span>
+      <span class="footer-logo"><span class="logo-mark">VC</span> VellumCadence</span>
+      <span class="footer-copy">&copy; 2026 VellumCadence. Netherlands.</span>
     </div>
   </footer>
 
