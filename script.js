@@ -401,114 +401,241 @@
     });
   });
 
-  /* ── 4D Canvas Background — Particle Network ── */
+  /* ── 4D Living Canvas Background ── */
   var canvas = document.getElementById('bgCanvas');
-  if (canvas) {
+  if (canvas && window.innerWidth > 480) {
     var ctx = canvas.getContext('2d');
-    var particles = [];
-    var mouseX = 0, mouseY = 0;
-    var PARTICLE_COUNT = Math.min(80, Math.floor(window.innerWidth / 18));
-    var CONNECT_DIST = 160;
-    var dpr = window.devicePixelRatio || 1;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W, H, time = 0;
+    var mouseX = -9999, mouseY = -9999, mouseSmX = 0, mouseSmY = 0;
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      ctx.scale(dpr, dpr);
+    function resize() {
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
-    resizeCanvas();
-    window.addEventListener('resize', function () {
-      ctx.setTransform(1,0,0,1,0,0);
-      resizeCanvas();
-    });
-
-    function Particle() {
-      this.x = Math.random() * window.innerWidth;
-      this.y = Math.random() * window.innerHeight;
-      this.vx = (Math.random() - 0.5) * 0.3;
-      this.vy = (Math.random() - 0.5) * 0.3;
-      this.radius = Math.random() * 1.5 + 0.5;
-      this.alpha = Math.random() * 0.4 + 0.1;
-      // Cycle through accent colors
-      var colors = ['139,92,246', '6,182,212', '236,72,153'];
-      this.color = colors[Math.floor(Math.random() * colors.length)];
-    }
-
-    Particle.prototype.update = function (w, h) {
-      // Mouse repulsion
-      var dx = this.x - mouseX;
-      var dy = this.y - mouseY;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 200 && dist > 0) {
-        var force = (200 - dist) / 200 * 0.02;
-        this.vx += (dx / dist) * force;
-        this.vy += (dy / dist) * force;
-      }
-      // Damping
-      this.vx *= 0.995;
-      this.vy *= 0.995;
-      this.x += this.vx;
-      this.y += this.vy;
-      // Wrap
-      if (this.x < 0) this.x = w;
-      if (this.x > w) this.x = 0;
-      if (this.y < 0) this.y = h;
-      if (this.y > h) this.y = 0;
-    };
-
-    for (var i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push(new Particle());
-    }
+    resize();
+    window.addEventListener('resize', resize);
 
     if (!isTouch) {
-      document.addEventListener('mousemove', function (e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+      document.addEventListener('mousemove', function (e) { mouseX = e.clientX; mouseY = e.clientY; });
+    }
+
+    /* — Flow field noise (simplified Perlin-like) — */
+    function noise(x, y) {
+      var ix = Math.floor(x), iy = Math.floor(y);
+      var fx = x - ix, fy = y - iy;
+      fx = fx * fx * (3 - 2 * fx);
+      fy = fy * fy * (3 - 2 * fy);
+      var a = Math.sin(ix * 127.1 + iy * 311.7) * 43758.5453;
+      a = a - Math.floor(a);
+      var b = Math.sin((ix + 1) * 127.1 + iy * 311.7) * 43758.5453;
+      b = b - Math.floor(b);
+      var c = Math.sin(ix * 127.1 + (iy + 1) * 311.7) * 43758.5453;
+      c = c - Math.floor(c);
+      var d = Math.sin((ix + 1) * 127.1 + (iy + 1) * 311.7) * 43758.5453;
+      d = d - Math.floor(d);
+      return a + (b - a) * fx + (c - a) * fy + (a - b - c + d) * fx * fy;
+    }
+
+    /* — Tendrils — flowing organic curves — */
+    var TENDRIL_COUNT = isTouch ? 5 : 8;
+    var tendrils = [];
+    for (var t = 0; t < TENDRIL_COUNT; t++) {
+      tendrils.push({
+        baseY: (t + 1) / (TENDRIL_COUNT + 1),
+        speed: 0.3 + Math.random() * 0.4,
+        amp: 60 + Math.random() * 80,
+        freq: 0.002 + Math.random() * 0.002,
+        phase: Math.random() * Math.PI * 2,
+        color: t % 3 // 0=purple, 1=cyan, 2=pink
       });
     }
 
-    function drawParticles() {
-      var w = window.innerWidth;
-      var h = window.innerHeight;
-      ctx.clearRect(0, 0, w, h);
+    var colors = [
+      [139, 92, 246],  // purple
+      [6, 182, 212],   // cyan
+      [236, 72, 153]   // pink
+    ];
 
-      // Update & draw particles
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.update(w, h);
+    /* — Floating organisms — */
+    var ORG_COUNT = isTouch ? 15 : 35;
+    var orgs = [];
+    for (var o = 0; o < ORG_COUNT; o++) {
+      orgs.push({
+        x: Math.random() * 1.2 - 0.1,
+        y: Math.random() * 1.2 - 0.1,
+        size: 2 + Math.random() * 4,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.02 + Math.random() * 0.03,
+        drift: 0.0002 + Math.random() * 0.0003,
+        angle: Math.random() * Math.PI * 2,
+        color: Math.floor(Math.random() * 3)
+      });
+    }
+
+    /* — Energy pulses — */
+    var pulses = [];
+    var lastPulse = 0;
+
+    function spawnPulse(x, y) {
+      pulses.push({ x: x, y: y, r: 0, maxR: 200 + Math.random() * 150, alpha: 0.15, color: Math.floor(Math.random() * 3) });
+    }
+
+    /* — Main render — */
+    function frame() {
+      time += 0.008;
+      ctx.clearRect(0, 0, W, H);
+
+      // Smooth mouse
+      mouseSmX += (mouseX - mouseSmX) * 0.05;
+      mouseSmY += (mouseY - mouseSmY) * 0.05;
+
+      // Auto-spawn pulses
+      if (time - lastPulse > 2.5) {
+        spawnPulse(Math.random() * W, Math.random() * H);
+        lastPulse = time;
+      }
+
+      // — Draw energy pulses —
+      for (var p = pulses.length - 1; p >= 0; p--) {
+        var pulse = pulses[p];
+        pulse.r += 1.5;
+        pulse.alpha *= 0.985;
+        if (pulse.alpha < 0.003 || pulse.r > pulse.maxR) { pulses.splice(p, 1); continue; }
+        var c = colors[pulse.color];
+        ctx.beginPath();
+        ctx.arc(pulse.x, pulse.y, pulse.r, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + pulse.alpha + ')';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+
+      // — Draw tendrils —
+      for (var t = 0; t < tendrils.length; t++) {
+        var td = tendrils[t];
+        var c = colors[td.color];
+        var baseY = td.baseY * H;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + p.color + ',' + p.alpha + ')';
+        for (var x = 0; x <= W; x += 3) {
+          var nx = x * td.freq + time * td.speed + td.phase;
+          var n1 = Math.sin(nx) * td.amp;
+          var n2 = Math.sin(nx * 2.3 + time * 0.5) * td.amp * 0.4;
+          var n3 = noise(x * 0.003, time * 0.3 + t) * td.amp * 0.6;
+
+          // Mouse distortion
+          var dx = x - mouseSmX;
+          var dy = baseY + n1 + n2 + n3 - mouseSmY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          var mouseEffect = 0;
+          if (dist < 250) {
+            mouseEffect = (1 - dist / 250) * 60 * (dy > 0 ? 1 : -1);
+          }
+
+          var y = baseY + n1 + n2 + n3 + mouseEffect;
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0.07)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Glow line
+        ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0.03)';
+        ctx.lineWidth = 8;
+        ctx.stroke();
+      }
+
+      // — Draw floating organisms —
+      for (var o = 0; o < orgs.length; o++) {
+        var org = orgs[o];
+        org.pulse += org.pulseSpeed;
+        org.angle += org.drift;
+        org.x += Math.cos(org.angle) * org.drift * 2;
+        org.y += Math.sin(org.angle) * org.drift * 1.5;
+
+        // Wrap
+        if (org.x > 1.15) org.x = -0.15;
+        if (org.x < -0.15) org.x = 1.15;
+        if (org.y > 1.15) org.y = -0.15;
+        if (org.y < -0.15) org.y = 1.15;
+
+        var ox = org.x * W;
+        var oy = org.y * H;
+        var s = org.size * (1 + Math.sin(org.pulse) * 0.4);
+
+        // Mouse attraction
+        var mdx = ox - mouseSmX;
+        var mdy = oy - mouseSmY;
+        var md = Math.sqrt(mdx * mdx + mdy * mdy);
+        if (md < 200 && md > 0) {
+          var pull = (200 - md) / 200 * 0.3;
+          ox -= mdx * pull * 0.02;
+          oy -= mdy * pull * 0.02;
+          s *= 1 + (200 - md) / 200 * 0.8;
+        }
+
+        var c = colors[org.color];
+        var alpha = 0.12 + Math.sin(org.pulse) * 0.06;
+
+        // Core
+        ctx.beginPath();
+        ctx.arc(ox, oy, s, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alpha + ')';
         ctx.fill();
 
-        // Connect nearby particles
-        for (var j = i + 1; j < particles.length; j++) {
-          var p2 = particles[j];
-          var dx = p.x - p2.x;
-          var dy = p.y - p2.y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECT_DIST) {
-            var opacity = (1 - dist / CONNECT_DIST) * 0.12;
+        // Glow
+        var grd = ctx.createRadialGradient(ox, oy, 0, ox, oy, s * 4);
+        grd.addColorStop(0, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (alpha * 0.4) + ')');
+        grd.addColorStop(1, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+        ctx.beginPath();
+        ctx.arc(ox, oy, s * 4, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+      }
+
+      // — Connect nearby organisms —
+      for (var i = 0; i < orgs.length; i++) {
+        for (var j = i + 1; j < orgs.length; j++) {
+          var ax = orgs[i].x * W, ay = orgs[i].y * H;
+          var bx = orgs[j].x * W, by = orgs[j].y * H;
+          var d = Math.sqrt((ax - bx) * (ax - bx) + (ay - by) * (ay - by));
+          if (d < 150) {
+            var op = (1 - d / 150) * 0.06;
+            var c = colors[orgs[i].color];
             ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = 'rgba(' + p.color + ',' + opacity + ')';
-            ctx.lineWidth = 0.5;
+            ctx.moveTo(ax, ay);
+            // Curved connection
+            var cx = (ax + bx) / 2 + Math.sin(time + i) * 15;
+            var cy = (ay + by) / 2 + Math.cos(time + j) * 15;
+            ctx.quadraticCurveTo(cx, cy, bx, by);
+            ctx.strokeStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + op + ')';
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
       }
 
-      requestAnimationFrame(drawParticles);
+      // — Breathing vignette —
+      var breathe = 0.5 + Math.sin(time * 0.8) * 0.08;
+      var vgrd = ctx.createRadialGradient(W / 2, H / 2, W * 0.15, W / 2, H / 2, W * 0.75);
+      vgrd.addColorStop(0, 'rgba(5,5,8,0)');
+      vgrd.addColorStop(1, 'rgba(5,5,8,' + breathe + ')');
+      ctx.fillStyle = vgrd;
+      ctx.fillRect(0, 0, W, H);
+
+      requestAnimationFrame(frame);
     }
 
-    // Only run on desktop or if not low-power
-    if (!isTouch || window.innerWidth > 768) {
-      drawParticles();
+    // Mouse click = spawn pulse
+    if (!isTouch) {
+      document.addEventListener('click', function (e) {
+        spawnPulse(e.clientX, e.clientY);
+      });
     }
+
+    frame();
   }
 
   /* ── Add SVG gradient def for result rings ── */
