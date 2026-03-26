@@ -44,6 +44,7 @@
       'pkg.tag': 'Packages', 'pkg.title': 'Monthly Content Packages',
       'pkg.sub': 'Choose the plan that fits your business goals and budget.',
       'pkg.mo': 'mo', 'pkg.popular': 'Most Popular', 'pkg.select': 'Get Started',
+      'pkg.timer.label': 'Founding price valid until end of 2026', 'pkg.timer.days': 'days', 'pkg.timer.hours': 'hours', 'pkg.timer.min': 'min', 'pkg.timer.sec': 'sec',
       'pkg.l.reels': 'Reels (10-25 sec)', 'pkg.l.visuals': 'Static visuals', 'pkg.l.carousel': 'Carousel set',
       'pkg.l.basic': 'Basic content calendar', 'pkg.l.revisions1': '1 round of revisions',
       'pkg.p.reels': 'Reels (10-25 sec)', 'pkg.p.visuals': 'Static visuals', 'pkg.p.carousel': 'Carousel sets',
@@ -118,6 +119,7 @@
       'pkg.tag': 'Pakketten', 'pkg.title': 'Maandelijkse Contentpakketten',
       'pkg.sub': 'Kies het plan dat past bij uw bedrijfsdoelen en budget.',
       'pkg.mo': 'mnd', 'pkg.popular': 'Meest Populair', 'pkg.select': 'Aan de Slag',
+      'pkg.timer.label': 'Oprichtingsprijs geldig t/m eind 2026', 'pkg.timer.days': 'dagen', 'pkg.timer.hours': 'uur', 'pkg.timer.min': 'min', 'pkg.timer.sec': 'sec',
       'pkg.l.reels': 'Reels (10-25 sec)', 'pkg.l.visuals': 'Statische visuals', 'pkg.l.carousel': 'Carrousel set',
       'pkg.l.basic': 'Basis contentkalender', 'pkg.l.revisions1': '1 revisieronde',
       'pkg.p.reels': 'Reels (10-25 sec)', 'pkg.p.visuals': 'Statische visuals', 'pkg.p.carousel': 'Carrousel sets',
@@ -192,6 +194,7 @@
       'pkg.tag': 'Pakete', 'pkg.title': 'Monatliche Content-Pakete',
       'pkg.sub': 'Wahlen Sie den Plan, der zu Ihren Geschaftszielen und Ihrem Budget passt.',
       'pkg.mo': 'Mt.', 'pkg.popular': 'Am Beliebtesten', 'pkg.select': 'Jetzt Starten',
+      'pkg.timer.label': 'Grundungspreis gultig bis Ende 2026', 'pkg.timer.days': 'Tage', 'pkg.timer.hours': 'Std.', 'pkg.timer.min': 'Min.', 'pkg.timer.sec': 'Sek.',
       'pkg.l.reels': 'Reels (10-25 Sek.)', 'pkg.l.visuals': 'Statische Visuals', 'pkg.l.carousel': 'Karussell-Set',
       'pkg.l.basic': 'Basis Content-Kalender', 'pkg.l.revisions1': '1 Revisionsrunde',
       'pkg.p.reels': 'Reels (10-25 Sek.)', 'pkg.p.visuals': 'Statische Visuals', 'pkg.p.carousel': 'Karussell-Sets',
@@ -266,6 +269,7 @@
       'pkg.tag': 'Пакеты', 'pkg.title': 'Ежемесячные контент-пакеты',
       'pkg.sub': 'Выберите план, подходящий вашим бизнес-целям и бюджету.',
       'pkg.mo': 'мес', 'pkg.popular': 'Самый популярный', 'pkg.select': 'Начать',
+      'pkg.timer.label': 'Цена для основателей действует до конца 2026', 'pkg.timer.days': 'дн', 'pkg.timer.hours': 'ч', 'pkg.timer.min': 'мин', 'pkg.timer.sec': 'сек',
       'pkg.l.reels': 'Reels (10-25 сек)', 'pkg.l.visuals': 'Статичных визуалов', 'pkg.l.carousel': 'Карусель',
       'pkg.l.basic': 'Базовый контент-календарь', 'pkg.l.revisions1': '1 раунд правок',
       'pkg.p.reels': 'Reels (10-25 сек)', 'pkg.p.visuals': 'Статичных визуалов', 'pkg.p.carousel': 'Карусели',
@@ -340,6 +344,7 @@
       'pkg.tag': 'Пакети', 'pkg.title': 'Щомісячні контент-пакети',
       'pkg.sub': 'Оберіть план, що підходить вашим бізнес-цілям та бюджету.',
       'pkg.mo': 'міс', 'pkg.popular': 'Найпопулярніший', 'pkg.select': 'Почати',
+      'pkg.timer.label': 'Ціна для засновників діє до кінця 2026', 'pkg.timer.days': 'дн', 'pkg.timer.hours': 'год', 'pkg.timer.min': 'хв', 'pkg.timer.sec': 'сек',
       'pkg.l.reels': 'Reels (10-25 сек)', 'pkg.l.visuals': 'Статичних візуалів', 'pkg.l.carousel': 'Карусель',
       'pkg.l.basic': 'Базовий контент-календар', 'pkg.l.revisions1': '1 раунд правок',
       'pkg.p.reels': 'Reels (10-25 сек)', 'pkg.p.visuals': 'Статичних візуалів', 'pkg.p.carousel': 'Каруселі',
@@ -414,6 +419,7 @@
       'pkg.tag': 'Forfaits', 'pkg.title': 'Forfaits mensuels de contenu',
       'pkg.sub': 'Choisissez le plan adapté à vos objectifs et votre budget.',
       'pkg.mo': 'mois', 'pkg.popular': 'Le plus populaire', 'pkg.select': 'Commencer',
+      'pkg.timer.label': 'Prix fondateur valable jusqu\u2019a fin 2026', 'pkg.timer.days': 'j', 'pkg.timer.hours': 'h', 'pkg.timer.min': 'min', 'pkg.timer.sec': 'sec',
       'pkg.l.reels': 'Reels (10-25 sec)', 'pkg.l.visuals': 'Visuels statiques', 'pkg.l.carousel': 'Carrousel',
       'pkg.l.basic': 'Calendrier de contenu basique', 'pkg.l.revisions1': '1 tour de révisions',
       'pkg.p.reels': 'Reels (10-25 sec)', 'pkg.p.visuals': 'Visuels statiques', 'pkg.p.carousel': 'Carrousels',
@@ -489,6 +495,7 @@
       'pkg.tag': 'Pakiety', 'pkg.title': 'Miesięczne pakiety treści',
       'pkg.sub': 'Wybierz plan dopasowany do Twoich celów biznesowych i budżetu.',
       'pkg.mo': 'mies', 'pkg.popular': 'Najpopularniejszy', 'pkg.select': 'Zacznij',
+      'pkg.timer.label': 'Cena zalozycielska wazna do konca 2026', 'pkg.timer.days': 'dni', 'pkg.timer.hours': 'godz', 'pkg.timer.min': 'min', 'pkg.timer.sec': 'sek',
       'pkg.l.reels': 'Reels (10-25 sek)', 'pkg.l.visuals': 'Wizualizacji statycznych', 'pkg.l.carousel': 'Karuzela',
       'pkg.l.basic': 'Podstawowy kalendarz treści', 'pkg.l.revisions1': '1 runda poprawek',
       'pkg.p.reels': 'Reels (10-25 sek)', 'pkg.p.visuals': 'Wizualizacji statycznych', 'pkg.p.carousel': 'Karuzele',
@@ -829,6 +836,30 @@
   // Recheck periodically for dynamic content
   setTimeout(syncBgHeight, 1000);
   setTimeout(syncBgHeight, 3000);
+
+  /* ── Countdown timer ── */
+  (function () {
+    var end = new Date(new Date().getFullYear() + '-12-31T23:59:59');
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      var diff = end - Date.now();
+      if (diff <= 0) diff = 0;
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var min = Math.floor((diff % 3600000) / 60000);
+      var sec = Math.floor((diff % 60000) / 1000);
+      var d = document.getElementById('ct-days');
+      var h = document.getElementById('ct-hours');
+      var m = document.getElementById('ct-min');
+      var s = document.getElementById('ct-sec');
+      if (d) d.textContent = days;
+      if (h) h.textContent = pad(hours);
+      if (m) m.textContent = pad(min);
+      if (s) s.textContent = pad(sec);
+    }
+    tick();
+    setInterval(tick, 1000);
+  }());
 
   /* ── Dynamic pricing from API ── */
   (function () {
