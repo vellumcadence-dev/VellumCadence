@@ -709,24 +709,15 @@
     });
   });
 
-  /* ── Form — real submission via Formspree ── */
+  /* ── Form — submission via OpenClaw Lead API ── */
   var ctaForm = document.getElementById('ctaForm');
   var formSuccess = document.getElementById('formSuccess');
+  var submitBtn = ctaForm ? ctaForm.querySelector('.form-submit') : null;
 
-  // Check if redirected back from Formspree with ?sent=true
-  var params = new URLSearchParams(window.location.search);
-  if (params.get('sent') === 'true' && ctaForm && formSuccess) {
-    ctaForm.style.display = 'none';
-    formSuccess.style.display = 'block';
-    window.history.replaceState({}, '', window.location.pathname);
-    // Scroll to form section
-    var ctaSection = document.getElementById('cta');
-    if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // Validation before submit — does NOT preventDefault if valid
   if (ctaForm) {
     ctaForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
       var name = document.getElementById('formName');
       var email = document.getElementById('formEmail');
       var biz = document.getElementById('formBiz');
@@ -748,10 +739,45 @@
         hasError = true;
       }
 
-      if (hasError) {
-        e.preventDefault(); // block submit only if invalid
+      if (hasError) return;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = '...';
       }
-      // If valid — form submits naturally to Formspree
+
+      var payload = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        business_type: biz.value,
+        website: (document.getElementById('formWebsite') || {}).value || '',
+        goals: (document.getElementById('formGoals') || {}).value || '',
+        budget: (document.getElementById('formBudget') || {}).value || ''
+      };
+
+      fetch('https://api.vellumcadence.com/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.ok) {
+            ctaForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+            var ctaSection = document.getElementById('cta');
+            if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            throw new Error('API error');
+          }
+        })
+        .catch(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Get My Free Content Plan';
+          }
+          alert('Something went wrong. Please try again.');
+        });
     });
   }
 
