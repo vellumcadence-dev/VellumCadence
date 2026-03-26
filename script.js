@@ -5,6 +5,56 @@
   /* ── Enable entrance animations only when JS runs ── */
   document.body.classList.add('js-ready');
 
+  /* ── Dynamic Portfolio from portfolio.json ── */
+  (function loadPortfolio() {
+    fetch('/portfolio.json?v=' + Date.now())
+      .then(function(r) { return r.json(); })
+      .then(function(items) {
+        if (!items || !items.length) return;
+        var grid = document.querySelector('.portfolio-grid');
+        if (!grid) return;
+        var grads = ['port-grad-1','port-grad-2','port-grad-3','port-grad-4','port-grad-5','port-grad-6'];
+        var html = items.map(function(item, i) {
+          var isVideo = item.type === 'video';
+          var media = isVideo
+            ? '<video src="' + item.src + '" preload="none" muted playsinline loop class="portfolio-img" style="width:100%;height:100%;object-fit:cover;" onmouseenter="this.play()" onmouseleave="this.pause()"></video>'
+            : '<img src="' + item.src + '" alt="' + item.title + '" loading="lazy" class="portfolio-img">';
+          var grad = grads[i % grads.length];
+          return '<div class="portfolio-item anim" data-category="' + item.category + '">' +
+            '<div class="portfolio-placeholder ' + grad + ' has-media">' + media + '</div>' +
+            '<div class="portfolio-overlay"><span class="portfolio-tag">' + item.tag + '</span>' +
+            '<span class="portfolio-title">' + item.title + '</span>' +
+            (isVideo ? '' : '<button class="portfolio-open" data-src="' + item.src + '">View</button>') +
+            '</div></div>';
+        }).join('');
+        grid.innerHTML = html;
+        // Re-bind filter
+        var activeFilter = 'all';
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            activeFilter = btn.getAttribute('data-filter');
+            document.querySelectorAll('.portfolio-item').forEach(function(item) {
+              item.style.display = (activeFilter === 'all' || item.getAttribute('data-category') === activeFilter) ? '' : 'none';
+            });
+          });
+        });
+        // Re-bind lightbox
+        var lb = document.getElementById('lightbox');
+        if (lb) {
+          grid.querySelectorAll('.portfolio-open').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              lb.querySelector('.lb-img').src = btn.getAttribute('data-src') || '';
+              lb.classList.add('open');
+            });
+          });
+        }
+      })
+      .catch(function() {}); // no portfolio.json — keep placeholders
+  })();
+
   /* ── i18n translations ── */
   var T = {
     en: {

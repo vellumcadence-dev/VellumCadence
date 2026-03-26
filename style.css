@@ -458,6 +458,9 @@ ul { list-style: none; }
 .placeholder-icon { font-size: 2.2rem; color: rgba(255,255,255,0.5); }
 .placeholder-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); font-weight: 500; }
 .portfolio-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.portfolio-placeholder.has-media { padding: 0; overflow: hidden; }
+.portfolio-placeholder.has-media img,
+.portfolio-placeholder.has-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .port-grad-1 { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
 .port-grad-2 { background: linear-gradient(135deg, #06b6d4, #8b5cf6); }

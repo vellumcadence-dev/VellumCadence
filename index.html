@@ -6,6 +6,7 @@
   <title>VellumCadence — AI Content That Stops The Scroll</title>
   <meta name="description" content="AI-powered content and neurovisuals for businesses. We build attention systems that turn views into leads.">
   <meta name="theme-color" content="#050508">
+  <link rel="icon" id="favicon-link" href="/favicon.ico">
 
   <!-- Canonical & hreflang -->
   <link rel="canonical" href="https://vellumcadence.com/">
@@ -74,9 +75,12 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-mark">VC</span>
-        <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
+      <a href="#" class="nav-logo" id="nav-logo">
+        <img id="logo-img" src="/logo-img.svg" alt="VellumCadence" style="display:none;height:36px;" onerror="this.style.display='none';" onload="this.style.display='inline-block';document.getElementById('logo-text').style.display='none';">
+        <span id="logo-text" style="display:flex;align-items:center;gap:8px;">
+          <span class="logo-mark">VC</span>
+          <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
+        </span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#pain" data-i18n="nav.problem">Problem</a></li>
@@ -397,7 +401,10 @@
       <div class="pkg-grid">
         <div class="pkg-card glass tilt-card anim">
           <div class="pkg-tier mono">Lite</div>
-          <div class="pkg-price"><span class="pkg-amount">590</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">mo</span></span></div>
+          <div class="pkg-price">
+            <div><span class="pkg-original">&euro;890/<span data-i18n="pkg.mo">mo</span></span><span class="pkg-save">−34%</span></div>
+            <span class="pkg-amount">590</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">mo</span></span>
+          </div>
           <ul class="pkg-list">
             <li><span class="pkg-val">5</span> <span data-i18n="pkg.l.reels">Reels (10-25 sec)</span></li>
             <li><span class="pkg-val">7</span> <span data-i18n="pkg.l.visuals">Static visuals</span></li>
@@ -410,7 +417,10 @@
         <div class="pkg-card pkg-popular glass tilt-card anim">
           <div class="pkg-badge" data-i18n="pkg.popular">Most Popular</div>
           <div class="pkg-tier mono">Pro</div>
-          <div class="pkg-price"><span class="pkg-amount">1,090</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">mo</span></span></div>
+          <div class="pkg-price">
+            <div><span class="pkg-original">&euro;1,590/<span data-i18n="pkg.mo">mo</span></span><span class="pkg-save">−31%</span></div>
+            <span class="pkg-amount">1,090</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">mo</span></span>
+          </div>
           <ul class="pkg-list">
             <li><span class="pkg-val">10</span> <span data-i18n="pkg.p.reels">Reels (10-25 sec)</span></li>
             <li><span class="pkg-val">16</span> <span data-i18n="pkg.p.visuals">Static visuals</span></li>
@@ -423,7 +433,10 @@
         </div>
         <div class="pkg-card glass tilt-card anim">
           <div class="pkg-tier mono">Premium</div>
-          <div class="pkg-price"><span class="pkg-amount">1,990</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">mo</span></span></div>
+          <div class="pkg-price">
+            <div><span class="pkg-original">&euro;2,890/<span data-i18n="pkg.mo">mo</span></span><span class="pkg-save">−31%</span></div>
+            <span class="pkg-amount">1,990</span><span class="pkg-currency">&euro;/<span data-i18n="pkg.mo">mo</span></span>
+          </div>
           <ul class="pkg-list">
             <li><span class="pkg-val">25</span> <span data-i18n="pkg.pr.reels">Reels (10-30 sec)</span></li>
             <li><span class="pkg-val">25</span> <span data-i18n="pkg.pr.visuals">Static visuals</span></li>
@@ -613,7 +626,10 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-logo"><span class="logo-mark">VC</span> VellumCadence</span>
+      <span class="footer-logo">
+        <img id="footer-logo-img" src="/logo-img.svg" alt="VellumCadence" style="display:none;height:28px;" onerror="this.style.display='none';" onload="this.style.display='inline-block';document.getElementById('footer-logo-text').style.display='none';">
+        <span id="footer-logo-text"><span class="logo-mark">VC</span> VellumCadence</span>
+      </span>
       <span class="footer-copy">&copy; 2026 VellumCadence. Netherlands.</span>
     </div>
   </footer>

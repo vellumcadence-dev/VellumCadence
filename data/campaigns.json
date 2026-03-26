@@ -1,0 +1,11 @@
+[
+  {"id":1,"name":"DE Outreach — Kummer Consulting","platform":"LinkedIn","target":"Adrian Kummer","status":"ready","sent":0,"replies":0,"conversions":0,"notes":"Connection request готов","createdAt":"2026-03-26"},
+  {"id":2,"name":"DE Outreach — Headgate GmbH","platform":"LinkedIn","target":"Tim Oldiges","status":"ready","sent":0,"replies":0,"conversions":0,"notes":"Connection request готов","createdAt":"2026-03-26"},
+  {"id":3,"name":"DE Outreach — CAB IT-Systemhaus","platform":"LinkedIn","target":"Michael Wagner","status":"ready","sent":0,"replies":0,"conversions":0,"notes":"Connection request готов","createdAt":"2026-03-26"},
+  {"id":4,"name":"NL Email — Geurwolkje","platform":"Email","target":"info@geurwolkje.nl","status":"sent","sent":1,"replies":0,"conversions":0,"notes":"Отправлено 2026-03-26","createdAt":"2026-03-26"},
+  {"id":5,"name":"NL Email — Nail House Amsterdam","platform":"Email","target":"info@nailhouseamsterdam.nl","status":"sent","sent":1,"replies":0,"conversions":0,"notes":"Отправлено 2026-03-26","createdAt":"2026-03-26"},
+  {"id":6,"name":"NL Email — Kim's Nail Studio","platform":"Email","target":"info@kimsnailstudio.com","status":"sent","sent":1,"replies":0,"conversions":0,"notes":"Отправлено 2026-03-26","createdAt":"2026-03-26"},
+  {"id":7,"name":"NL Email — Passiesport","platform":"Email","target":"info@passiecenter.nl","status":"sent","sent":1,"replies":0,"conversions":0,"notes":"Отправлено 2026-03-26","createdAt":"2026-03-26"},
+  {"id":8,"name":"NL Email — Nails by Day","platform":"Email","target":"info@nailsbyday.com","status":"sent","sent":1,"replies":0,"conversions":0,"notes":"Отправлено 2026-03-26","createdAt":"2026-03-26"},
+  {"id":9,"name":"NL Instagram — Amsterdam Nail Art","platform":"Instagram","target":"@amsterdamnail","status":"pending","sent":0,"replies":0,"conversions":0,"notes":"DM вручную с телефона","createdAt":"2026-03-26"}
+]
