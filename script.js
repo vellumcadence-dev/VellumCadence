@@ -830,6 +830,39 @@
   setTimeout(syncBgHeight, 1000);
   setTimeout(syncBgHeight, 3000);
 
+  /* ── Dynamic pricing from API ── */
+  (function () {
+    var PKG_ORDER = ['lite', 'pro', 'premium'];
+    function applyPricing(data) {
+      var cards = document.querySelectorAll('.pkg-card');
+      cards.forEach(function (card, i) {
+        var key = PKG_ORDER[i];
+        if (!key || !data[key]) return;
+        var amountEl = card.querySelector('.pkg-amount');
+        if (!amountEl) return;
+        amountEl.textContent = data[key].price.toLocaleString('en');
+        var priceEl = card.querySelector('.pkg-price');
+        var origEl = priceEl.querySelector('.pkg-original');
+        if (data.showOriginal && data[key].original && data[key].original > data[key].price) {
+          if (!origEl) {
+            origEl = document.createElement('del');
+            origEl.className = 'pkg-original';
+            priceEl.insertBefore(origEl, priceEl.firstChild);
+          }
+          origEl.textContent = data[key].original.toLocaleString('en') + '\u20ac';
+        } else if (origEl) {
+          origEl.remove();
+        }
+      });
+    }
+    try {
+      fetch('https://api.vellumcadence.com/pricing')
+        .then(function (r) { return r.json(); })
+        .then(applyPricing)
+        .catch(function () {});
+    } catch (e) {}
+  }());
+
   /* ── Init ── */
   applyLang(detectLanguage());
 
