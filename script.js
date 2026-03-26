@@ -843,15 +843,25 @@
         amountEl.textContent = data[key].price.toLocaleString('en');
         var priceEl = card.querySelector('.pkg-price');
         var origEl = priceEl.querySelector('.pkg-original');
-        if (data.showOriginal && data[key].original && data[key].original > data[key].price) {
+        var saveEl = priceEl.querySelector('.pkg-save');
+        var showDiscount = data.showOriginal && data[key].original && data[key].original > data[key].price;
+        if (showDiscount) {
+          var pct = Math.round((1 - data[key].price / data[key].original) * 100);
           if (!origEl) {
             origEl = document.createElement('del');
             origEl.className = 'pkg-original';
             priceEl.insertBefore(origEl, priceEl.firstChild);
           }
           origEl.textContent = data[key].original.toLocaleString('en') + '\u20ac';
-        } else if (origEl) {
-          origEl.remove();
+          if (!saveEl) {
+            saveEl = document.createElement('span');
+            saveEl.className = 'pkg-save';
+            origEl.insertAdjacentElement('afterend', saveEl);
+          }
+          saveEl.textContent = '-' + pct + '%';
+        } else {
+          if (origEl) origEl.remove();
+          if (saveEl) saveEl.remove();
         }
       });
     }
