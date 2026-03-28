@@ -2,7 +2,7 @@
 
 // ─── Client config (per-client, from backend in the future) ──────────────────
 const CLIENT = {
-  planName: 'Pro',   // matches packages.json name
+  planName: 'Growth',   // matches packages.json name
   renewalDate: '15 апреля 2026',
 };
 
@@ -23,35 +23,35 @@ async function loadPackages() {
 // ─── Mock Data ───────────────────────────────────────────────────────────────
 
 const CONTENT = [
-  { id: 1, type: 'Reel',     title: 'Product Launch Teaser',          status: 'review',     platform: 'Instagram', date: '2026-03-28', gradient: 'linear-gradient(135deg,rgba(139,92,246,.4),rgba(236,72,153,.3))' },
-  { id: 2, type: 'Carousel', title: '5 Reasons to Outsource Recruiting', status: 'approved',  platform: 'LinkedIn',  date: '2026-03-25', gradient: 'linear-gradient(135deg,rgba(6,182,212,.4),rgba(139,92,246,.3))' },
-  { id: 3, type: 'Visual',   title: 'Quote — Leadership Matters',     status: 'scheduled',  platform: 'Instagram', date: '2026-03-30', gradient: 'linear-gradient(135deg,rgba(236,72,153,.4),rgba(6,182,212,.3))' },
-  { id: 4, type: 'Reel',     title: 'Team Culture Behind the Scenes', status: 'review',     platform: 'Instagram', date: '2026-03-29', gradient: 'linear-gradient(135deg,rgba(139,92,246,.4),rgba(6,182,212,.3))' },
-  { id: 5, type: 'Visual',   title: 'Brand Identity — Color Palette', status: 'approved',   platform: 'Instagram', date: '2026-03-22', gradient: 'linear-gradient(135deg,rgba(236,72,153,.35),rgba(139,92,246,.3))' },
-  { id: 6, type: 'Carousel', title: 'How We Find Top Talent',         status: 'approved',   platform: 'LinkedIn',  date: '2026-03-20', gradient: 'linear-gradient(135deg,rgba(6,182,212,.35),rgba(236,72,153,.25))' },
-  { id: 7, type: 'Visual',   title: 'Vacancy — Senior Developer',     status: 'scheduled',  platform: 'LinkedIn',  date: '2026-04-02', gradient: 'linear-gradient(135deg,rgba(139,92,246,.3),rgba(6,182,212,.4))' },
+  { id: 1, type: 'Reel',     title: 'Product Launch — Glow Serum',       status: 'review',     platform: 'Instagram', date: '2026-03-28', gradient: 'linear-gradient(135deg,rgba(139,92,246,.4),rgba(236,72,153,.3))' },
+  { id: 2, type: 'Carousel', title: '5 Steps to Glass Skin Routine',      status: 'approved',   platform: 'Instagram', date: '2026-03-25', gradient: 'linear-gradient(135deg,rgba(6,182,212,.4),rgba(139,92,246,.3))' },
+  { id: 3, type: 'Visual',   title: 'Hero Shot — Mineral Sunscreen',      status: 'scheduled',  platform: 'Instagram', date: '2026-03-30', gradient: 'linear-gradient(135deg,rgba(236,72,153,.4),rgba(6,182,212,.3))' },
+  { id: 4, type: 'Reel',     title: 'Behind the Scenes — Product Making', status: 'review',     platform: 'Instagram', date: '2026-03-29', gradient: 'linear-gradient(135deg,rgba(139,92,246,.4),rgba(6,182,212,.3))' },
+  { id: 5, type: 'Visual',   title: 'Brand Palette — Clean Beauty',       status: 'approved',   platform: 'Instagram', date: '2026-03-22', gradient: 'linear-gradient(135deg,rgba(236,72,153,.35),rgba(139,92,246,.3))' },
+  { id: 6, type: 'Carousel', title: 'Ingredient Spotlight — Niacinamide', status: 'approved',   platform: 'Instagram', date: '2026-03-20', gradient: 'linear-gradient(135deg,rgba(6,182,212,.35),rgba(236,72,153,.25))' },
+  { id: 7, type: 'Visual',   title: 'Spring Collection — Flat Lay',       status: 'scheduled',  platform: 'Instagram', date: '2026-04-02', gradient: 'linear-gradient(135deg,rgba(139,92,246,.3),rgba(6,182,212,.4))' },
 ];
 
 const MESSAGES = [
   { from: 'manager', name: 'Dmitry', initials: 'DV', text: 'Hi Adrian! Welcome to your VellumCadence portal. Your first content batch for March is in progress.', time: '09:14', date: 'Mar 20' },
-  { from: 'client',  name: 'Adrian', initials: 'AK', text: 'Great, looking forward to it. Can we focus more on LinkedIn this month?', time: '10:30', date: 'Mar 20' },
-  { from: 'manager', name: 'Dmitry', initials: 'DV', text: 'Absolutely — I\'ve added 3 LinkedIn carousels to the March plan. First drafts ready for your review on March 25.', time: '10:47', date: 'Mar 20' },
-  { from: 'client',  name: 'Adrian', initials: 'AK', text: 'Perfect. Also — for the Reels, please keep the tone professional. We are targeting HR directors.', time: '11:02', date: 'Mar 21' },
-  { from: 'manager', name: 'Dmitry', initials: 'DV', text: 'Noted — professional, authoritative tone. Your April brief is ready to fill in whenever you have 5 minutes.', time: '09:33', date: 'Mar 26' },
+  { from: 'client',  name: 'Adrian', initials: 'AK', text: 'Great, looking forward to it. Can we focus more on product visuals this month?', time: '10:30', date: 'Mar 20' },
+  { from: 'manager', name: 'Dmitry', initials: 'DV', text: 'Absolutely — added 3 extra AI product shots to the March plan. First drafts ready for your review on March 25.', time: '10:47', date: 'Mar 20' },
+  { from: 'client',  name: 'Adrian', initials: 'AK', text: 'Perfect. For the Reels, please keep the tone premium and aspirational — our audience is 25–40 women.', time: '11:02', date: 'Mar 21' },
+  { from: 'manager', name: 'Dmitry', initials: 'DV', text: 'Noted — premium, aspirational tone. Your April brief is ready to fill in whenever you have 5 minutes.', time: '09:33', date: 'Mar 26' },
 ];
 
 const CALENDAR = [
   { date: '2026-03-28', weekday: 'Сб', day: 28, time: '10:00', title: 'Product Launch Teaser', platform: 'Instagram', type: 'Reel',     status: 'scheduled' },
-  { date: '2026-03-30', weekday: 'Пн', day: 30, time: '14:00', title: 'Quote — Leadership Matters', platform: 'Instagram', type: 'Visual',   status: 'scheduled' },
-  { date: '2026-04-02', weekday: 'Чт', day: 2,  time: '09:00', title: 'Vacancy — Senior Developer', platform: 'LinkedIn', type: 'Visual',   status: 'scheduled' },
+  { date: '2026-03-30', weekday: 'Пн', day: 30, time: '14:00', title: 'Ingredient Spotlight Reel', platform: 'Instagram', type: 'Visual',   status: 'scheduled' },
+  { date: '2026-04-02', weekday: 'Чт', day: 2,  time: '09:00', title: 'Spring Collection — Flat Lay', platform: 'Instagram', type: 'Visual',   status: 'scheduled' },
   { date: '2026-04-05', weekday: 'Вс', day: 5,  time: '11:00', title: 'April Content #1',         platform: 'Instagram', type: 'Reel',     status: 'pending' },
   { date: '2026-04-08', weekday: 'Ср', day: 8,  time: '10:00', title: 'April Content #2',         platform: 'LinkedIn',  type: 'Carousel', status: 'pending' },
   { date: '2026-04-12', weekday: 'Вс', day: 12, time: '12:00', title: 'April Content #3',         platform: 'Instagram', type: 'Visual',   status: 'pending' },
 ];
 
 const INVOICES = [
-  { id: 'INV-001', date: '2026-03-01', desc: 'Pro Package — март 2026', amount: 1090, status: 'paid' },
-  { id: 'INV-002', date: '2026-04-01', desc: 'Pro Package — апрель 2026', amount: 1090, status: 'upcoming' },
+  { id: 'INV-001', date: '2026-03-01', desc: 'Growth Package — март 2026', amount: 1490, status: 'paid' },
+  { id: 'INV-002', date: '2026-04-01', desc: 'Growth Package — апрель 2026', amount: 1490, status: 'upcoming' },
 ];
 
 // ─── Routing ─────────────────────────────────────────────────────────────────
@@ -345,11 +345,11 @@ function initInvoices() {
     <div class="invoice-summary">
       <div class="inv-summary-card">
         <div class="inv-summary-label">Всего оплачено</div>
-        <div class="inv-summary-value green">${paid.toLocaleString('de-DE')} €</div>
+        <div class="inv-summary-value green">$${paid.toLocaleString('en-US')}</div>
       </div>
       <div class="inv-summary-card">
         <div class="inv-summary-label">Следующий платёж</div>
-        <div class="inv-summary-value yellow">${planPrice.toLocaleString('de-DE')} €</div>
+        <div class="inv-summary-value yellow">$${planPrice.toLocaleString('en-US')}</div>
       </div>
       <div class="inv-summary-card">
         <div class="inv-summary-label">Дата renewal</div>
@@ -369,7 +369,7 @@ function initInvoices() {
           <span class="inv-id">${inv.id}</span>
           <span class="inv-desc">${inv.desc}</span>
           <span class="inv-date">${formatDate(inv.date)}</span>
-          <span class="inv-amount inv-status-${inv.status}">${inv.amount.toLocaleString('de-DE')} €</span>
+          <span class="inv-amount inv-status-${inv.status}">$${inv.amount.toLocaleString('en-US')}</span>
           <span class="inv-actions">
             ${inv.status === 'paid'
               ? `<button class="btn-pdf" onclick="downloadInvoice('${inv.id}')">PDF ↓</button>`
@@ -418,7 +418,7 @@ function renderPackageSection() {
   if (usageTop) {
     usageTop.querySelector('.pkg-usage-name').textContent = plan.name + ' Package';
     usageTop.querySelector('.pkg-usage-desc').textContent = `${totalItems} единиц контента · март 2026`;
-    usageTop.querySelector('.pkg-usage-price').innerHTML = `${plan.price.toLocaleString('de-DE')} €<span class="pkg-per">/мес</span>`;
+    usageTop.querySelector('.pkg-usage-price').innerHTML = `$${plan.price.toLocaleString('en-US')}<span class="pkg-per">/мес</span>`;
   }
   const pLabels = document.querySelector('.progress-labels');
   if (pLabels) {
@@ -446,9 +446,9 @@ function renderPackageSection() {
       <div class="pkg-card ${isCurrent ? 'pkg-current' : ''}">
         ${isCurrent ? `<div class="pkg-badge">Ваш план</div>` : ''}
         <div class="pkg-card-name">${pkg.name}</div>
-        <div class="pkg-card-price">${pkg.price.toLocaleString('de-DE')} €<span>/мес</span></div>
+        <div class="pkg-card-price">$${pkg.price.toLocaleString('en-US')}<span>/мес</span></div>
         <div class="pkg-card-units" style="font-size:.72rem;color:var(--text-dim);font-family:var(--mono);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)">
-          <span style="text-decoration:line-through;color:var(--text-muted)">${pkg.originalPrice.toLocaleString('de-DE')} €</span>
+          <span style="text-decoration:line-through;color:var(--text-muted)">$${pkg.originalPrice.toLocaleString('en-US')}</span>
         </div>
         <ul class="pkg-features">
           ${pkg.features.map(f => `<li>${f.val ? `<strong>${f.val}</strong> ` : ''}${f.label}</li>`).join('')}
@@ -463,7 +463,7 @@ function renderDashboardRenewal() {
   const plan = PACKAGES.find(p => p.name === CLIENT.planName);
   if (!plan) return;
   const priceEl = document.querySelector('.renewal-price');
-  if (priceEl) priceEl.textContent = plan.price.toLocaleString('de-DE') + ' €';
+  if (priceEl) priceEl.textContent = '$' + plan.price.toLocaleString('en-US');
   const sub = document.querySelector('#s-dashboard .section-sub');
   if (sub) sub.textContent = `Март 2026 · ${plan.name} Package`;
   // sidebar user plan

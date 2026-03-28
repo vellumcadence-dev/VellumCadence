@@ -1,28 +1,29 @@
 [
   {
     "id": 1,
-    "name": "Lite",
-    "price": 590,
-    "originalPrice": 890,
+    "name": "Starter",
+    "price": 790,
+    "originalPrice": 1190,
     "popular": false,
     "features": [
-      {"val": "5", "label": "Reels (10-25 sec)"},
-      {"val": "7", "label": "Static visuals"},
-      {"val": "1", "label": "Carousel set"},
-      {"val": "", "label": "Basic content calendar"},
+      {"val": "6", "label": "Reels (15-30 sec)"},
+      {"val": "3", "label": "Carousel sets"},
+      {"val": "8", "label": "AI product visuals"},
+      {"val": "", "label": "Content calendar"},
       {"val": "", "label": "1 round of revisions"}
     ]
   },
   {
     "id": 2,
-    "name": "Pro",
-    "price": 1090,
-    "originalPrice": 1590,
+    "name": "Growth",
+    "price": 1490,
+    "originalPrice": 2190,
     "popular": true,
     "features": [
-      {"val": "10", "label": "Reels (10-25 sec)"},
-      {"val": "16", "label": "Static visuals"},
-      {"val": "3", "label": "Carousel sets"},
+      {"val": "10", "label": "Reels (15-30 sec)"},
+      {"val": "6", "label": "Carousel sets"},
+      {"val": "15", "label": "AI product visuals"},
+      {"val": "", "label": "Stories (weekly)"},
       {"val": "", "label": "Full content strategy"},
       {"val": "", "label": "2 rounds of revisions"},
       {"val": "", "label": "Publishing calendar"}
@@ -30,18 +31,37 @@
   },
   {
     "id": 3,
-    "name": "Premium",
-    "price": 1990,
-    "originalPrice": 2890,
+    "name": "Scale",
+    "price": 2490,
+    "originalPrice": 3490,
     "popular": false,
     "features": [
-      {"val": "12", "label": "Reels (10-30 sec)"},
-      {"val": "20", "label": "Static visuals"},
-      {"val": "5", "label": "Carousel sets"},
-      {"val": "", "label": "Full brand identity kit"},
+      {"val": "14", "label": "Reels (15-30 sec)"},
+      {"val": "10", "label": "Carousel sets"},
+      {"val": "25", "label": "AI product visuals"},
+      {"val": "", "label": "Stories (weekly)"},
+      {"val": "", "label": "Auto-posting included"},
+      {"val": "", "label": "Unlimited revisions"},
+      {"val": "", "label": "Dedicated manager"}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Enterprise",
+    "price": 3990,
+    "originalPrice": 5490,
+    "popular": false,
+    "features": [
+      {"val": "18+", "label": "Reels (15-45 sec)"},
+      {"val": "14+", "label": "Carousel sets"},
+      {"val": "40+", "label": "AI product visuals"},
+      {"val": "", "label": "Stories (daily)"},
+      {"val": "", "label": "Full account management"},
+      {"val": "", "label": "Auto-posting included"},
       {"val": "", "label": "Unlimited revisions"},
       {"val": "", "label": "Dedicated manager"},
-      {"val": "", "label": "Priority support"}
+      {"val": "", "label": "Priority support"},
+      {"val": "", "label": "Monthly strategy call"}
     ]
   }
 ]
