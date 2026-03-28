@@ -418,9 +418,9 @@ async function initPackages() {
     PACKAGES = await res.json();
   } catch {
     PACKAGES = [
-      { name: 'Lite',    price: 590,  originalPrice: 890,  features: [{val:'5',label:'Reels (10-25 sec)'},{val:'7',label:'Static visuals'},{val:'1',label:'Carousel set'},{val:'',label:'Basic content calendar'},{val:'',label:'1 round of revisions'}] },
-      { name: 'Pro',     price: 1090, originalPrice: 1590, features: [{val:'10',label:'Reels (10-25 sec)'},{val:'16',label:'Static visuals'},{val:'3',label:'Carousel sets'},{val:'',label:'Full content strategy'},{val:'',label:'2 rounds of revisions'},{val:'',label:'Publishing calendar'}] },
-      { name: 'Premium', price: 1990, originalPrice: 2890, features: [{val:'12',label:'Reels (10-30 sec)'},{val:'20',label:'Static visuals'},{val:'5',label:'Carousel sets'},{val:'',label:'Full brand identity kit'},{val:'',label:'Unlimited revisions'},{val:'',label:'Dedicated manager'},{val:'',label:'Priority support'}] },
+      { name: 'Lite',    price: 590,  originalPrice: 890,  currency: '€', popular: false, features: [{val:'5',label:'Reels (10-25 sec)'},{val:'7',label:'Static visuals'},{val:'1',label:'Carousel set'},{val:'',label:'Basic content calendar'},{val:'',label:'1 round of revisions'}] },
+      { name: 'Pro',     price: 1090, originalPrice: 1590, currency: '€', popular: true,  features: [{val:'10',label:'Reels (10-25 sec)'},{val:'16',label:'Static visuals'},{val:'3',label:'Carousel sets'},{val:'',label:'Full content strategy'},{val:'',label:'2 rounds of revisions'},{val:'',label:'Publishing calendar'}] },
+      { name: 'Premium', price: 1990, originalPrice: 2890, currency: '€', popular: false, features: [{val:'12',label:'Reels (10-30 sec)'},{val:'20',label:'Static visuals'},{val:'5',label:'Carousel sets'},{val:'',label:'Full brand identity kit'},{val:'',label:'Unlimited revisions'},{val:'',label:'Dedicated manager'},{val:'',label:'Priority support'}] },
     ];
   }
   renderPackagesEditor();
