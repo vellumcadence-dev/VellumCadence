@@ -35,8 +35,8 @@
     "originalPrice": 2890,
     "popular": false,
     "features": [
-      {"val": "25", "label": "Reels (10-30 sec)"},
-      {"val": "25", "label": "Static visuals"},
+      {"val": "12", "label": "Reels (10-30 sec)"},
+      {"val": "20", "label": "Static visuals"},
       {"val": "5", "label": "Carousel sets"},
       {"val": "", "label": "Full brand identity kit"},
       {"val": "", "label": "Unlimited revisions"},

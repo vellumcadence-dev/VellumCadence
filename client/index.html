@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal — VellumCadence</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="portal-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <a href="/" class="sidebar-logo">
+      <span class="logo-mark">VC</span>
+      <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-section="dashboard" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" data-section="content" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Мой контент</span>
+        <span class="nav-badge" id="reviewBadge" style="display:none"></span>
+      </a>
+      <a class="nav-item" data-section="package" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span>Мой пакет</span>
+      </a>
+      <a class="nav-item" data-section="brief" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span>Бриф</span>
+      </a>
+      <a class="nav-item" data-section="messages" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Сообщения</span>
+        <span class="nav-dot" id="msgDot"></span>
+      </a>
+      <a class="nav-item" data-section="calendar" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Календарь</span>
+      </a>
+      <a class="nav-item" data-section="invoices" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span>Счета</span>
+      </a>
+      <a class="nav-item" data-section="settings" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Настройки</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">AK</div>
+      <div class="user-info">
+        <div class="user-name">Adrian Kummer</div>
+        <div class="user-plan">Pro Package</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MOBILE HEADER ===== -->
+  <header class="mobile-header">
+    <button class="mobile-burger" id="mobileBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="mobile-logo"><span class="logo-mark">VC</span> <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span></span>
+    <div class="mobile-avatar">AK</div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="portal-main" id="portalMain">
+
+    <!-- DASHBOARD -->
+    <section class="section active" id="s-dashboard">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title" id="dashGreeting">Dashboard</h1>
+          <p class="section-sub">Март 2026 · Pro Package</p>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">Использовано</div>
+          <div class="stat-value">7<span class="stat-of">/24</span></div>
+          <div class="stat-bar"><div class="stat-fill" style="width:29%"></div></div>
+          <div class="stat-hint">29% пакета</div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-label">Одобрено</div>
+          <div class="stat-value">5</div>
+          <div class="stat-hint">готово к публикации</div>
+        </div>
+        <div class="stat-card stat-yellow">
+          <div class="stat-label">На ревью</div>
+          <div class="stat-value">2</div>
+          <div class="stat-hint">ждут вашего ответа</div>
+        </div>
+        <div class="stat-card stat-cyan">
+          <div class="stat-label">Запланировано</div>
+          <div class="stat-value">3</div>
+          <div class="stat-hint">в ближайшие 7 дней</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Ближайший контент</span>
+            <a class="card-link" data-section="content" href="#">Все →</a>
+          </div>
+          <div id="dashUpcoming"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Последние сообщения</span>
+            <a class="card-link" data-section="messages" href="#">Открыть →</a>
+          </div>
+          <div id="dashMessages"></div>
+        </div>
+      </div>
+
+      <div class="card renewal-card">
+        <div class="renewal-info">
+          <div class="renewal-label">Следующий renewal</div>
+          <div class="renewal-date">15 апреля 2026</div>
+        </div>
+        <div class="renewal-right">
+          <div class="renewal-pkg">Pro Package</div>
+          <div class="renewal-price">1 100 €</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- МОЙ КОНТЕНТ -->
+    <section class="section" id="s-content">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Мой контент</h1>
+          <p class="section-sub">Март 2026 · 7 единиц</p>
+        </div>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Все <span class="tab-count" id="cnt-all"></span></button>
+        <button class="filter-tab" data-filter="review">На ревью <span class="tab-count" id="cnt-review"></span></button>
+        <button class="filter-tab" data-filter="approved">Одобрено <span class="tab-count" id="cnt-approved"></span></button>
+        <button class="filter-tab" data-filter="scheduled">Запланировано <span class="tab-count" id="cnt-scheduled"></span></button>
+      </div>
+      <div class="content-grid" id="contentGrid"></div>
+    </section>
+
+    <!-- МОЙ ПАКЕТ -->
+    <section class="section" id="s-package">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Мой пакет</h1>
+          <p class="section-sub">Текущий план и использование</p>
+        </div>
+      </div>
+
+      <div class="card pkg-usage-card">
+        <div class="pkg-usage-top">
+          <div>
+            <div class="pkg-usage-name">Pro Package</div>
+            <div class="pkg-usage-desc">24 единицы контента · март 2026</div>
+          </div>
+          <div class="pkg-usage-price">1 100 €<span class="pkg-per">/мес</span></div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-labels">
+            <span>7 использовано</span>
+            <span>17 осталось</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:29%"></div>
+          </div>
+        </div>
+        <div class="pkg-breakdown">
+          <div class="breakdown-item">
+            <span class="breakdown-dot dot-purple"></span>
+            <span class="breakdown-type">Reels</span>
+            <span class="breakdown-count">3</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-dot dot-cyan"></span>
+            <span class="breakdown-type">Карусели</span>
+            <span class="breakdown-count">2</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-dot dot-pink"></span>
+            <span class="breakdown-type">Визуалы</span>
+            <span class="breakdown-count">2</span>
+          </div>
+          <div class="breakdown-item breakdown-remaining">
+            <span class="breakdown-type">Осталось</span>
+            <span class="breakdown-count">17</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="subsection-title">Все пакеты</h2>
+      <div class="packages-compare">
+        <div class="pkg-card">
+          <div class="pkg-card-name">Lite</div>
+          <div class="pkg-card-price">600 €<span>/мес</span></div>
+          <div class="pkg-card-units">12 единиц контента</div>
+          <ul class="pkg-features">
+            <li>Reels, карусели, визуалы</li>
+            <li>2 ревизии на единицу</li>
+            <li>Публикация по расписанию</li>
+            <li>Ежемесячная аналитика</li>
+          </ul>
+        </div>
+        <div class="pkg-card pkg-current">
+          <div class="pkg-badge">Ваш план</div>
+          <div class="pkg-card-name">Pro</div>
+          <div class="pkg-card-price">1 100 €<span>/мес</span></div>
+          <div class="pkg-card-units">24 единицы контента</div>
+          <ul class="pkg-features">
+            <li>Reels, карусели, визуалы</li>
+            <li>3 ревизии на единицу</li>
+            <li>Публикация по расписанию</li>
+            <li>Аналитика + отчёты</li>
+            <li>Приоритетная поддержка</li>
+          </ul>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-card-name">Premium</div>
+          <div class="pkg-card-price">2 000 €<span>/мес</span></div>
+          <div class="pkg-card-units">48 единиц контента</div>
+          <ul class="pkg-features">
+            <li>Reels, карусели, визуалы</li>
+            <li>Неограниченные ревизии</li>
+            <li>Публикация по расписанию</li>
+            <li>Полная аналитика</li>
+            <li>Dedicated менеджер</li>
+            <li>Ежемесячная стратегия</li>
+          </ul>
+          <a href="mailto:hello@vellumcadence.com" class="btn btn-outline" style="margin-top:20px;display:block;text-align:center">Обсудить апгрейд</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- БРИФ -->
+    <section class="section" id="s-brief">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Бриф</h1>
+          <p class="section-sub">Заполните каждый месяц — мы создаём контент на его основе</p>
+        </div>
+      </div>
+      <div class="brief-months" id="briefMonths"></div>
+      <form class="card brief-form" id="briefForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Продукт / услуга этого месяца</label>
+            <textarea class="form-input" rows="3" placeholder="Что продвигаем? Опишите предложение, УТП, актуальные акции..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Целевая аудитория</label>
+            <textarea class="form-input" rows="3" placeholder="Кто ваш идеальный клиент? Должность, отрасль, боли..."></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Темы контента</label>
+            <input type="text" class="form-input" placeholder="Экспертность, кейсы, вакансии, корпоративная культура...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Тон коммуникации</label>
+            <select class="form-input form-select">
+              <option value="">Выберите тон</option>
+              <option>Профессиональный, деловой</option>
+              <option>Дружелюбный, открытый</option>
+              <option>Экспертный, авторитетный</option>
+              <option>Непринуждённый, живой</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Референсы / примеры (ссылки)</label>
+          <textarea class="form-input" rows="2" placeholder="Ссылки на контент, который вам нравится..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Дополнительные пожелания</label>
+          <textarea class="form-input" rows="2" placeholder="Важная информация, ограничения, особые запросы..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Сохранить бриф</button>
+          <span class="form-hint" id="briefHint"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- СООБЩЕНИЯ -->
+    <section class="section" id="s-messages">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Сообщения</h1>
+          <p class="section-sub">Чат с командой VellumCadence</p>
+        </div>
+      </div>
+      <div class="messages-wrap card">
+        <div class="messages-list" id="messagesList"></div>
+        <div class="messages-input-row">
+          <input type="text" class="messages-input" id="msgInput" placeholder="Написать сообщение...">
+          <button class="btn btn-send" id="msgSend" aria-label="Отправить">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАЛЕНДАРЬ -->
+    <section class="section" id="s-calendar">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Контент-календарь</h1>
+          <p class="section-sub">Расписание публикаций</p>
+        </div>
+      </div>
+      <div id="calendarView"></div>
+    </section>
+
+    <!-- СЧЕТА -->
+    <section class="section" id="s-invoices">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Счета</h1>
+          <p class="section-sub">История платежей и документы</p>
+        </div>
+      </div>
+      <div id="invoicesView"></div>
+    </section>
+
+    <!-- НАСТРОЙКИ -->
+    <section class="section" id="s-settings">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Настройки</h1>
+        </div>
+      </div>
+      <div class="settings-grid">
+        <form class="card" id="profileForm">
+          <div class="card-title">Профиль</div>
+          <div class="form-group">
+            <label class="form-label">Имя</label>
+            <input type="text" class="form-input" value="Adrian Kummer">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" value="adrian@kummer-consulting.de">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Компания</label>
+            <input type="text" class="form-input" value="Kummer Consulting GmbH">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Сайт</label>
+            <input type="url" class="form-input" value="https://kummer-consulting.de">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <span class="form-hint" id="profileHint"></span>
+          </div>
+        </form>
+
+        <div class="card">
+          <div class="card-title">Уведомления</div>
+          <div class="toggle-list">
+            <div class="toggle-item">
+              <div class="toggle-text">
+                <div class="toggle-label">Email-уведомления</div>
+                <div class="toggle-desc">Новый контент, сообщения, renewal</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+            <div class="toggle-item">
+              <div class="toggle-text">
+                <div class="toggle-label">WhatsApp</div>
+                <div class="toggle-desc">Срочные уведомления от менеджера</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+            <div class="toggle-item">
+              <div class="toggle-text">
+                <div class="toggle-label">Напоминание о брифе</div>
+                <div class="toggle-desc">За 5 дней до конца месяца</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-track"></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:20px">
+            <label class="form-label">Телефон (WhatsApp)</label>
+            <input type="tel" class="form-input" placeholder="+49 ...">
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-primary" onclick="showHint('notifHint','Сохранено')">Сохранить</button>
+            <span class="form-hint" id="notifHint"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Mobile overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

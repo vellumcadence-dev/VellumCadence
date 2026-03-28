@@ -60,10 +60,10 @@
     en: {
       'nav.problem': 'Problem', 'nav.solution': 'Solution', 'nav.portfolio': 'Portfolio',
       'nav.packages': 'Packages', 'nav.faq': 'FAQ', 'nav.contact': 'Free Plan',
-      'hero.tag': 'AI Content Company',
+      'hero.tag': 'AI Reels & Visuals',
       'hero.title1': 'AI Content That',
       'hero.title2': 'Stops The Scroll',
-      'hero.sub': 'We create AI-powered visuals and video content that capture attention, build trust, and turn followers into paying clients.',
+      'hero.sub': 'Scroll-stopping Reels and AI product visuals for skincare, jewelry, and fashion DTC brands. Done-for-you content system. First batch in 5 days.',
       'hero.cta': 'Get Free Content Plan', 'hero.cta2': 'See Our Work',
       'hero.m1': 'Powered Production', 'hero.m2': 'Days to First Content', 'hero.m3': 'Pieces / Month',
       'pain.tag': 'The Problem', 'pain.title': "Why Your Content Isn't Working",
@@ -77,9 +77,9 @@
       'sol.c1.label': 'speed.ai', 'sol.c1.title': 'AI Speed', 'sol.c1.text': 'AI-powered generation lets us create content fast, consistently, and at scale — no lengthy photoshoots needed.',
       'sol.c2.label': 'neuro.vis', 'sol.c2.title': 'Neurovisuals', 'sol.c2.text': "Visuals engineered to catch the eye and spark curiosity. Not stock templates — a unique style built for your brand.",
       'sol.c3.label': 'logic.mkt', 'sol.c3.title': 'Marketing Logic', 'sol.c3.text': 'Every piece serves a purpose in your funnel: attract attention, build trust, or drive the sale.',
-      'who.tag': 'Industries', 'who.title': 'Who We Work With',
-      'who.sub': 'We help brands across industries build scroll-stopping content systems.',
-      'who.c1': 'E-commerce', 'who.c2': 'Beauty & Wellness', 'who.c3': 'Clinics & Healthcare',
+      'who.tag': 'Who We Serve', 'who.title': 'Built for Visual-First Brands',
+      'who.sub': 'We specialise in skincare, jewelry, and fashion DTC brands that need consistent, high-quality content — without hiring an agency.',
+      'who.c1': 'DTC & E-commerce', 'who.c2': 'Skincare & Jewelry', 'who.c3': 'Clinics & Med Spa',
       'who.c4': 'HoReCa', 'who.c5': 'Real Estate', 'who.c6': 'Tech & SaaS',
       'port.tag': 'Portfolio', 'port.title': 'What We Create',
       'port.sub': 'These are the content formats we produce monthly. Real client examples coming soon.',
@@ -94,6 +94,7 @@
       'pkg.tag': 'Packages', 'pkg.title': 'Monthly Content Packages',
       'pkg.sub': 'Choose the plan that fits your business goals and budget.',
       'pkg.mo': 'mo', 'pkg.popular': 'Most Popular', 'pkg.select': 'Get Started',
+      'pkg.bill.monthly': 'Monthly', 'pkg.bill.save10': '−10%', 'pkg.bill.save20': '−20%',
       'pkg.timer.label': 'Founding price valid until end of 2026', 'pkg.timer.days': 'days', 'pkg.timer.hours': 'hours', 'pkg.timer.min': 'min', 'pkg.timer.sec': 'sec',
       'pkg.l.reels': 'Reels (10-25 sec)', 'pkg.l.visuals': 'Static visuals', 'pkg.l.carousel': 'Carousel set',
       'pkg.l.basic': 'Basic content calendar', 'pkg.l.revisions1': '1 round of revisions',
@@ -135,10 +136,10 @@
     nl: {
       'nav.problem': 'Probleem', 'nav.solution': 'Oplossing', 'nav.portfolio': 'Portfolio',
       'nav.packages': 'Pakketten', 'nav.faq': 'FAQ', 'nav.contact': 'Gratis plan',
-      'hero.tag': 'AI Content Company',
+      'hero.tag': 'AI Reels & Visuals',
       'hero.title1': 'AI Content Die',
       'hero.title2': 'Het Scrollen Stopt',
-      'hero.sub': 'Wij maken AI-aangedreven visuals en videocontent die aandacht vangen, vertrouwen opbouwen en volgers omzetten in betalende klanten.',
+      'hero.sub': 'Scroll-stoppende Reels en AI productvisuals voor skincare, sieraden en fashion DTC-merken. Content systeem op maat. Eerste batch in 5 dagen.',
       'hero.cta': 'Gratis Contentplan Ontvangen', 'hero.cta2': 'Bekijk Ons Werk',
       'hero.m1': 'Productie op AI-basis', 'hero.m2': 'Dagen tot eerste content', 'hero.m3': 'Stuks / Maand',
       'pain.tag': 'Het Probleem', 'pain.title': 'Waarom Uw Content Niet Werkt',
@@ -152,9 +153,9 @@
       'sol.c1.label': 'speed.ai', 'sol.c1.title': 'AI Snelheid', 'sol.c1.text': 'AI-aangedreven generatie maakt het mogelijk om snel, consistent en op schaal content te maken — geen lange fotoshoots nodig.',
       'sol.c2.label': 'neuro.vis', 'sol.c2.title': 'Neurovisuals', 'sol.c2.text': 'Visuals ontworpen om het oog te vangen en nieuwsgierigheid te wekken. Geen stock templates — een unieke stijl voor uw merk.',
       'sol.c3.label': 'logic.mkt', 'sol.c3.title': 'Marketing Logica', 'sol.c3.text': 'Elk stuk dient een doel in uw funnel: aandacht trekken, vertrouwen opbouwen, of de verkoop stimuleren.',
-      'who.tag': 'Sectoren', 'who.title': 'Met Wie Wij Werken',
-      'who.sub': 'Wij helpen merken in alle sectoren om scroll-stoppende contentsystemen te bouwen.',
-      'who.c1': 'E-commerce', 'who.c2': 'Beauty & Wellness', 'who.c3': 'Klinieken & Gezondheidszorg',
+      'who.tag': 'Voor wie', 'who.title': 'Gebouwd voor Visual-First Merken',
+      'who.sub': 'Wij zijn gespecialiseerd in skincare, sieraden en fashion DTC-merken die consistente, hoogwaardige content nodig hebben.',
+      'who.c1': 'DTC & E-commerce', 'who.c2': 'Skincare & Sieraden', 'who.c3': 'Klinieken & Med Spa',
       'who.c4': 'HoReCa', 'who.c5': 'Vastgoed', 'who.c6': 'Tech & SaaS',
       'port.tag': 'Portfolio', 'port.title': 'Wat wij maken',
       'port.sub': 'Dit zijn de contentformaten die wij maandelijks produceren. Echte klantvoorbeelden volgen binnenkort.',
@@ -210,10 +211,10 @@
     de: {
       'nav.problem': 'Problem', 'nav.solution': 'Losung', 'nav.portfolio': 'Portfolio',
       'nav.packages': 'Pakete', 'nav.faq': 'FAQ', 'nav.contact': 'Gratis Plan',
-      'hero.tag': 'AI Content Company',
+      'hero.tag': 'AI Reels & Visuals',
       'hero.title1': 'AI Content Der',
       'hero.title2': 'Das Scrollen Stoppt',
-      'hero.sub': 'Wir erstellen KI-gestutzte Visuals und Videoinhalte, die Aufmerksamkeit erregen, Vertrauen aufbauen und Follower in zahlende Kunden verwandeln.',
+      'hero.sub': 'Scroll-stoppende Reels und KI-Produktvisuals fur DTC, Beauty und Skincare-Marken. Content-System auf Autopilot. Erste Inhalte in 5 Tagen.',
       'hero.cta': 'Kostenlosen Contentplan Erhalten', 'hero.cta2': 'Unsere Arbeit Ansehen',
       'hero.m1': 'KI-gestützte Produktion', 'hero.m2': 'Tage bis zum ersten Content', 'hero.m3': 'Stücke / Monat',
       'pain.tag': 'Das Problem', 'pain.title': 'Warum Ihr Content Nicht Funktioniert',
@@ -227,9 +228,9 @@
       'sol.c1.label': 'speed.ai', 'sol.c1.title': 'KI-Geschwindigkeit', 'sol.c1.text': 'KI-gestutzte Generierung ermoglicht es uns, Content schnell, konsistent und skalierbar zu erstellen — keine langen Fotoshootings notig.',
       'sol.c2.label': 'neuro.vis', 'sol.c2.title': 'Neurovisuals', 'sol.c2.text': 'Visuals, die das Auge fesseln und Neugier wecken. Keine Stock-Templates — ein einzigartiger Stil fur Ihre Marke.',
       'sol.c3.label': 'logic.mkt', 'sol.c3.title': 'Marketing-Logik', 'sol.c3.text': 'Jedes Stuck erfullt einen Zweck in Ihrem Funnel: Aufmerksamkeit erregen, Vertrauen aufbauen oder den Verkauf vorantreiben.',
-      'who.tag': 'Branchen', 'who.title': 'Mit Wem Wir Arbeiten',
-      'who.sub': 'Wir helfen Marken branchenubergreifend, scroll-stoppende Content-Systeme aufzubauen.',
-      'who.c1': 'E-Commerce', 'who.c2': 'Beauty & Wellness', 'who.c3': 'Kliniken & Gesundheitswesen',
+      'who.tag': 'Fur wen', 'who.title': 'Fur Visual-First Marken',
+      'who.sub': 'Spezialisiert auf Skincare, Schmuck und Fashion DTC-Marken, die konsistente, hochwertige Inhalte benotigen.',
+      'who.c1': 'DTC & E-Commerce', 'who.c2': 'Skincare & Schmuck', 'who.c3': 'Kliniken & Med Spa',
       'who.c4': 'HoReCa', 'who.c5': 'Immobilien', 'who.c6': 'Tech & SaaS',
       'port.tag': 'Portfolio', 'port.title': 'Was wir erstellen',
       'port.sub': 'Das sind die Content-Formate, die wir monatlich produzieren. Echte Kundenbeispiele folgen bald.',
@@ -911,29 +912,44 @@
     setInterval(tick, 1000);
   }());
 
-  /* ── Dynamic pricing from API ── */
+  /* ── Dynamic pricing + billing toggle ── */
   (function () {
     var PKG_ORDER = ['lite', 'pro', 'premium'];
-    function applyPricing(data) {
+    var basePrices = null;
+    var currentPeriod = 'monthly';
+    var DISCOUNT = { monthly: 1, quarterly: 0.9, annual: 0.8 };
+    var NOTES = {
+      monthly:   { en: '', nl: '', de: '' },
+      quarterly: { en: 'Billed every 3 months — save 10%', nl: 'Per kwartaal gefactureerd — 10% korting', de: 'Vierteljährlich abgerechnet — 10% Rabatt' },
+      annual:    { en: 'Billed annually — save 20%', nl: 'Jaarlijks gefactureerd — 20% korting', de: 'Jährlich abgerechnet — 20% Rabatt' }
+    };
+
+    function renderPrices(data, period) {
+      var mult = DISCOUNT[period] || 1;
       var cards = document.querySelectorAll('.pkg-card');
       cards.forEach(function (card, i) {
         var key = PKG_ORDER[i];
         if (!key || !data[key]) return;
+        var basePrice = data[key].price;
+        var discounted = Math.round(basePrice * mult);
         var amountEl = card.querySelector('.pkg-amount');
-        if (!amountEl) return;
-        amountEl.textContent = data[key].price.toLocaleString('en');
+        if (amountEl) amountEl.textContent = discounted.toLocaleString('en');
         var priceEl = card.querySelector('.pkg-price');
+        if (!priceEl) return;
         var origEl = priceEl.querySelector('.pkg-original');
         var saveEl = priceEl.querySelector('.pkg-save');
-        var showDiscount = data.showOriginal && data[key].original && data[key].original > data[key].price;
-        if (showDiscount) {
-          var pct = Math.round((1 - data[key].price / data[key].original) * 100);
+        // Show original (strikethrough) when API says so OR billing discount active
+        var showApiDiscount = data.showOriginal && data[key].original && data[key].original > basePrice;
+        var showBillingDiscount = period !== 'monthly';
+        if (showApiDiscount || showBillingDiscount) {
+          var origPrice = showBillingDiscount ? basePrice : data[key].original;
+          var pct = Math.round((1 - discounted / origPrice) * 100);
           if (!origEl) {
             origEl = document.createElement('del');
             origEl.className = 'pkg-original';
             priceEl.insertBefore(origEl, priceEl.firstChild);
           }
-          origEl.textContent = data[key].original.toLocaleString('en') + '\u20ac';
+          origEl.textContent = origPrice.toLocaleString('en') + '\u20ac';
           if (!saveEl) {
             saveEl = document.createElement('span');
             saveEl.className = 'pkg-save';
@@ -945,11 +961,32 @@
           if (saveEl) saveEl.remove();
         }
       });
+      // Update note
+      var noteEl = document.getElementById('billingNote');
+      if (noteEl) {
+        var lang = document.documentElement.lang || 'en';
+        var noteMap = NOTES[period] || NOTES.monthly;
+        noteEl.textContent = noteMap[lang] || noteMap.en;
+      }
     }
+
+    function initToggle() {
+      var btns = document.querySelectorAll('.billing-btn');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentPeriod = btn.dataset.period || 'monthly';
+          if (basePrices) renderPrices(basePrices, currentPeriod);
+        });
+      });
+    }
+
+    initToggle();
     try {
       fetch('https://api.vellumcadence.com/pricing')
         .then(function (r) { return r.json(); })
-        .then(applyPricing)
+        .then(function (data) { basePrices = data; renderPrices(data, currentPeriod); })
         .catch(function () {});
     } catch (e) {}
   }());

@@ -250,6 +250,15 @@ ul { list-style: none; }
   box-shadow: 0 0 20px rgba(139,92,246,0.3);
 }
 .nav-cta:hover { box-shadow: 0 0 30px rgba(139,92,246,0.5); }
+.nav-portal {
+  font-size: 0.85rem !important;
+  color: rgba(255,255,255,0.55) !important;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 7px 16px;
+  border-radius: 40px;
+  transition: color 0.2s, border-color 0.2s !important;
+}
+.nav-portal:hover { color: #fff !important; border-color: rgba(255,255,255,0.4) !important; }
 
 /* Language Switcher */
 .lang-switcher { position: relative; margin-left: 12px; }
@@ -722,3 +731,42 @@ body.js-ready .anim.visible { opacity: 1; transform: translateY(0); }
   .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
   .footer-inner { flex-direction: column; text-align: center; }
 }
+
+/* ── Billing Toggle ─────────────────────────────────────────────────────── */
+.billing-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 24px 0 8px;
+  flex-wrap: wrap;
+}
+.billing-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: .85rem;
+  font-family: var(--font);
+  transition: all .2s;
+  white-space: nowrap;
+}
+.billing-btn:hover { border-color: var(--accent); color: var(--text); }
+.billing-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.billing-save {
+  font-size: .72rem;
+  background: rgba(34,197,94,.15);
+  color: #22c55e;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+.billing-note {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  min-height: 18px;
+}
+.pkg-period-label { font-size: .75rem; color: var(--text-dim); }

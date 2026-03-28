@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — VellumCadence</title>
+  <meta name="description" content="How VellumCadence collects and uses your data. GDPR compliant.">
+  <meta name="theme-color" content="#050508">
+  <link rel="icon" id="favicon-link" href="/favicon.ico">
+  <link rel="canonical" href="https://vellumcadence.com/privacy">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .privacy-page {
+      min-height: 100vh;
+      padding: 140px 0 80px;
+    }
+    .privacy-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .privacy-content h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .privacy-updated {
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 48px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .privacy-content h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin: 40px 0 12px;
+    }
+    .privacy-content p,
+    .privacy-content li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.65);
+    }
+    .privacy-content ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+    .privacy-content li {
+      margin-bottom: 4px;
+    }
+    .privacy-content a {
+      color: rgba(255,255,255,.85);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .privacy-content a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 4D Background System -->
+  <div class="bg-system" aria-hidden="true">
+    <canvas id="bgCanvas"></canvas>
+    <div class="aurora">
+      <div class="aurora-beam aurora-beam-1"></div>
+      <div class="aurora-beam aurora-beam-2"></div>
+      <div class="aurora-beam aurora-beam-3"></div>
+    </div>
+    <div class="morph-blobs">
+      <div class="morph-blob blob-1"></div>
+      <div class="morph-blob blob-2"></div>
+      <div class="morph-blob blob-3"></div>
+      <div class="morph-blob blob-4"></div>
+    </div>
+    <div class="depth-grid"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Cursor glow (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" id="nav-logo">
+        <img id="logo-img" src="/logo-img.svg" alt="VellumCadence" style="display:none;height:36px;" onerror="this.style.display='none';" onload="this.style.display='inline-block';document.getElementById('logo-text').style.display='none';">
+        <span id="logo-text" style="display:flex;align-items:center;gap:8px;">
+          <span class="logo-mark">VC</span>
+          <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#pain">Problem</a></li>
+        <li><a href="/#solution">Solution</a></li>
+        <li><a href="/#portfolio">Portfolio</a></li>
+        <li><a href="/#packages">Packages</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#cta" class="nav-cta">Get Free Plan</a></li>
+      </ul>
+      <!-- Language switcher -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-current" id="langBtn" aria-label="Language">
+          <span id="langLabel">EN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="lang-dropdown" id="langDropdown">
+          <li><button data-lang="en">EN</button></li>
+          <li><button data-lang="nl">NL</button></li>
+          <li><button data-lang="de">DE</button></li>
+          <li><button data-lang="fr">FR</button></li>
+          <li><button data-lang="pl">PL</button></li>
+          <li><button data-lang="ru">RU</button></li>
+          <li><button data-lang="uk">UA</button></li>
+        </ul>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Privacy Content -->
+  <main class="privacy-page">
+    <div class="privacy-content">
+      <h1>Privacy Policy</h1>
+      <p class="privacy-updated">Last updated: March 2026</p>
+
+      <h2>1. Who we are</h2>
+      <p>VellumCadence is an AI-powered content studio based in the Netherlands.<br>
+      Website: <a href="https://vellumcadence.com">vellumcadence.com</a><br>
+      Contact: <a href="mailto:hello@vellumcadence.com">hello@vellumcadence.com</a></p>
+
+      <h2>2. What data we collect</h2>
+      <p>When you submit the contact form on our website, we collect:</p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>Your business type and website</li>
+        <li>Your content goals and budget range</li>
+      </ul>
+      <p>We do not collect payment data, passwords, or sensitive personal information.</p>
+
+      <h2>3. How we use your data</h2>
+      <p>We use the information you submit exclusively to:</p>
+      <ul>
+        <li>Respond to your inquiry</li>
+        <li>Send you the free content plan you requested</li>
+        <li>Follow up about our services if relevant</li>
+      </ul>
+      <p>We do not sell, share, or transfer your data to third parties for marketing purposes.</p>
+
+      <h2>4. Data storage</h2>
+      <p>Form submissions are processed via Formspree (formspree.io) and stored in our email inbox. We retain your data for up to 24 months unless you request deletion.</p>
+
+      <h2>5. Your rights (GDPR)</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction or deletion of your data</li>
+        <li>Withdraw consent at any time</li>
+        <li>Lodge a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens)</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at: <a href="mailto:hello@vellumcadence.com">hello@vellumcadence.com</a></p>
+
+      <h2>6. Cookies</h2>
+      <p>Our website may use Google Analytics to track anonymous visitor statistics. No personal data is collected through cookies without your consent.</p>
+
+      <h2>7. Changes to this policy</h2>
+      <p>We may update this policy occasionally. The latest version is always available at <a href="https://vellumcadence.com/privacy">vellumcadence.com/privacy</a>.</p>
+
+      <h2>8. Contact</h2>
+      <p>VellumCadence<br>
+      Amsterdam, Netherlands<br>
+      <a href="mailto:hello@vellumcadence.com">hello@vellumcadence.com</a></p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">
+        <img id="footer-logo-img" src="/logo-img.svg" alt="VellumCadence" style="display:none;height:28px;" onerror="this.style.display='none';" onload="this.style.display='inline-block';document.getElementById('footer-logo-text').style.display='none';">
+        <span id="footer-logo-text"><span class="logo-mark">VC</span> VellumCadence</span>
+      </span>
+      <span class="footer-copy">&copy; 2026 VellumCadence. Netherlands. &nbsp;<a href="/privacy" style="color:rgba(255,255,255,.45);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);">Privacy Policy</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.addEventListener('click', e => {
+      if (e.target.tagName === 'A') { burger.classList.remove('active'); navLinks.classList.remove('open'); }
+    });
+    // Lang switcher toggle
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    langBtn?.addEventListener('click', e => { e.stopPropagation(); document.getElementById('langSwitcher').classList.toggle('open'); });
+    document.addEventListener('click', () => document.getElementById('langSwitcher')?.classList.remove('open'));
+  </script>
+</body>
+</html>
