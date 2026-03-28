@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — VellumCadence</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/client/style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">
+      <span class="logo-mark">VC</span>
+      <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
+    </div>
+    <div class="login-title">Admin Panel</div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label">Пароль</label>
+        <input type="password" class="form-input" id="loginPass" placeholder="Введите пароль" autofocus>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px">Войти</button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN APP -->
+<div class="portal-layout" id="adminApp" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <a href="/" class="sidebar-logo">
+      <span class="logo-mark">VC</span>
+      <span class="logo-name">Vellum<span class="logo-accent">Cadence</span></span>
+    </a>
+    <div class="sidebar-badge">ADMIN</div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-section="dashboard" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" data-section="leads" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Лиды / CRM</span>
+        <span class="nav-badge" id="newLeadsBadge" style="display:none"></span>
+      </a>
+      <a class="nav-item" data-section="clients" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Клиенты</span>
+      </a>
+      <a class="nav-item" data-section="portfolio" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Портфолио</span>
+      </a>
+      <a class="nav-item" data-section="packages" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span>Пакеты</span>
+      </a>
+      <a class="nav-item" data-section="site" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Редактор сайта</span>
+      </a>
+      <a class="nav-item" data-section="agents" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>Агенты</span>
+      </a>
+      <a class="nav-item" data-section="settings" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Настройки</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">DV</div>
+      <div class="user-info">
+        <div class="user-name">Dmitry</div>
+        <div class="user-plan">Administrator</div>
+      </div>
+      <button class="logout-btn" id="logoutBtn" title="Выйти">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header">
+    <button class="mobile-burger" id="mobileBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="mobile-logo"><span class="logo-mark">VC</span> <span class="logo-name">Admin</span></span>
+    <div class="mobile-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">DV</div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="portal-main" id="portalMain">
+
+    <!-- DASHBOARD -->
+    <section class="section active" id="s-dashboard">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Dashboard</h1>
+          <p class="section-sub" id="dashDate">Март 2026</p>
+        </div>
+        <div class="header-actions">
+          <a href="https://vellumcadence.com" target="_blank" class="btn btn-ghost btn-sm">Открыть сайт ↗</a>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card stat-purple">
+          <div class="stat-label">MRR</div>
+          <div class="stat-value" id="statMrr">$0</div>
+          <div class="stat-hint">активных клиентов: <span id="statClients">0</span></div>
+        </div>
+        <div class="stat-card stat-cyan">
+          <div class="stat-label">Лидов в воронке</div>
+          <div class="stat-value" id="statLeads">0</div>
+          <div class="stat-hint">новых за 7 дней: <span id="statNewLeads">0</span></div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-label">Конверсия</div>
+          <div class="stat-value" id="statConv">0%</div>
+          <div class="stat-hint">лид → клиент</div>
+        </div>
+        <div class="stat-card stat-yellow">
+          <div class="stat-label">Follow-up</div>
+          <div class="stat-value" id="statFollowup">0</div>
+          <div class="stat-hint">требуют внимания</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Воронка</span>
+            <a class="card-link" data-section="leads" href="#">Все лиды →</a>
+          </div>
+          <div id="dashFunnel"></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Последние лиды</span>
+            <a class="card-link" data-section="leads" href="#">CRM →</a>
+          </div>
+          <div id="dashRecentLeads"></div>
+        </div>
+      </div>
+
+      <div class="card renewal-card" style="margin-top:20px">
+        <div class="renewal-info">
+          <div class="renewal-label">North Star Goal</div>
+          <div class="renewal-date">$18K–$20K MRR · 10–12 клиентов</div>
+        </div>
+        <div class="renewal-right">
+          <div class="renewal-pkg">Конец года 1</div>
+          <div class="renewal-price" style="font-size:1rem;color:var(--text-dim)">2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADS / CRM -->
+    <section class="section" id="s-leads">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Лиды / CRM</h1>
+          <p class="section-sub">Воронка продаж</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary btn-sm" id="addLeadBtn">+ Добавить лид</button>
+        </div>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Все <span class="tab-count" id="lcnt-all"></span></button>
+        <button class="filter-tab" data-filter="new">Новые <span class="tab-count" id="lcnt-new"></span></button>
+        <button class="filter-tab" data-filter="outreach">Outreach <span class="tab-count" id="lcnt-outreach"></span></button>
+        <button class="filter-tab" data-filter="followup">Follow-up <span class="tab-count" id="lcnt-followup"></span></button>
+        <button class="filter-tab" data-filter="meeting">Meeting <span class="tab-count" id="lcnt-meeting"></span></button>
+        <button class="filter-tab" data-filter="won">Won <span class="tab-count" id="lcnt-won"></span></button>
+        <button class="filter-tab" data-filter="lost">Lost <span class="tab-count" id="lcnt-lost"></span></button>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="crm-table-wrap">
+          <table class="crm-table">
+            <thead>
+              <tr>
+                <th>Компания / Контакт</th>
+                <th>Канал</th>
+                <th>Ниша</th>
+                <th>Статус</th>
+                <th>Дата</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="leadsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="section" id="s-clients">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Клиенты</h1>
+          <p class="section-sub">Активные и прошлые</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary btn-sm" id="addClientBtn">+ Добавить клиента</button>
+        </div>
+      </div>
+      <div class="empty-state" id="clientsEmpty">
+        <div class="empty-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="empty-title">Активных клиентов пока нет</div>
+        <div class="empty-sub">Первый клиент появится здесь после подписки</div>
+      </div>
+      <div class="content-grid" id="clientsGrid" style="display:none"></div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section" id="s-portfolio">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Портфолио</h1>
+          <p class="section-sub">Управление кейсами на сайте</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary btn-sm" id="addPortfolioBtn">+ Добавить кейс</button>
+        </div>
+      </div>
+      <div class="content-grid" id="portfolioAdminGrid"></div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="section" id="s-packages">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Пакеты</h1>
+          <p class="section-sub">Цены и состав пакетов</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary btn-sm" id="savePackagesBtn">Сохранить JSON</button>
+        </div>
+      </div>
+      <div id="packagesEditor"></div>
+    </section>
+
+    <!-- SITE EDITOR -->
+    <section class="section" id="s-site">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Редактор сайта</h1>
+          <p class="section-sub">Hero, видео, тексты</p>
+        </div>
+      </div>
+
+      <div class="settings-grid">
+        <form class="card" id="heroForm">
+          <div class="card-title">Hero секция</div>
+          <div class="form-group">
+            <label class="form-label">Заголовок (h1)</label>
+            <input type="text" class="form-input" id="heroTitle" value="AI-Powered Reels & Visuals">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Подзаголовок</label>
+            <textarea class="form-input" rows="2" id="heroSub">For Skincare, Jewelry & Fashion Brands That Want to Stop Scroll</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA кнопка</label>
+            <input type="text" class="form-input" id="heroCta" value="Get My Free Content Plan">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <span class="form-hint" id="heroHint"></span>
+          </div>
+        </form>
+
+        <form class="card" id="videoForm">
+          <div class="card-title">Главное видео</div>
+          <div class="form-group">
+            <label class="form-label">URL видео (MP4 / YouTube / Vimeo)</label>
+            <input type="url" class="form-input" id="videoUrl" placeholder="https://...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Постер (обложка, URL изображения)</label>
+            <input type="url" class="form-input" id="videoPoster" placeholder="https://...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Тип</label>
+            <select class="form-input form-select" id="videoType">
+              <option value="mp4">MP4 (self-hosted)</option>
+              <option value="youtube">YouTube embed</option>
+              <option value="vimeo">Vimeo embed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Позиция на странице</label>
+            <select class="form-input form-select" id="videoPosition">
+              <option value="hero">В Hero секции (фон)</option>
+              <option value="after-hero">После Hero (отдельный блок)</option>
+              <option value="portfolio">В портфолио</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Применить</button>
+            <span class="form-hint" id="videoHint"></span>
+          </div>
+        </form>
+
+        <form class="card" id="seoForm">
+          <div class="card-title">SEO / Meta</div>
+          <div class="form-group">
+            <label class="form-label">Page Title</label>
+            <input type="text" class="form-input" id="seoTitle" value="VellumCadence — AI Reels & Visuals for DTC Brands">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Meta Description</label>
+            <textarea class="form-input" rows="2" id="seoDesc">AI-powered Reels, carousels, and product visuals for skincare, jewelry and fashion brands.</textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <span class="form-hint" id="seoHint"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- AGENTS -->
+    <section class="section" id="s-agents">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Агенты</h1>
+          <p class="section-sub">OpenClaw — управление и мониторинг</p>
+        </div>
+        <div class="header-actions">
+          <a href="https://api.vellumcadence.com/mc/" target="_blank" class="btn btn-primary btn-sm">Mission Control ↗</a>
+        </div>
+      </div>
+
+      <div class="agents-grid" id="agentsGrid"></div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="card-title">Быстрые ссылки</div>
+        <div class="quick-links">
+          <a href="https://api.vellumcadence.com/mc/" target="_blank" class="quick-link">
+            <span class="ql-icon">🖥</span>
+            <span>Mission Control</span>
+          </a>
+          <a href="https://vellumcadence.com" target="_blank" class="quick-link">
+            <span class="ql-icon">🌐</span>
+            <span>Сайт</span>
+          </a>
+          <a href="https://vellumcadence.com/client/" target="_blank" class="quick-link">
+            <span class="ql-icon">👤</span>
+            <span>Клиентский кабинет</span>
+          </a>
+          <a href="mailto:vellumcadence@gmail.com" class="quick-link">
+            <span class="ql-icon">✉️</span>
+            <span>Gmail</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="section" id="s-settings">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Настройки</h1>
+        </div>
+      </div>
+      <div class="settings-grid">
+        <form class="card" id="passForm">
+          <div class="card-title">Сменить пароль</div>
+          <div class="form-group">
+            <label class="form-label">Текущий пароль</label>
+            <input type="password" class="form-input" id="passOld">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Новый пароль</label>
+            <input type="password" class="form-input" id="passNew">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Повторить</label>
+            <input type="password" class="form-input" id="passNew2">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сменить</button>
+            <span class="form-hint" id="passHint"></span>
+          </div>
+        </form>
+
+        <div class="card">
+          <div class="card-title">Данные</div>
+          <div class="toggle-list">
+            <div class="toggle-item" style="flex-direction:column;align-items:flex-start;gap:12px">
+              <button class="btn btn-ghost" style="width:100%" onclick="exportData()">Экспорт всех данных (JSON)</button>
+              <label class="btn btn-ghost" style="width:100%;text-align:center;cursor:pointer">
+                Импорт данных (JSON)
+                <input type="file" accept=".json" style="display:none" onchange="importData(this)">
+              </label>
+              <button class="btn btn-danger" style="width:100%" onclick="clearData()">Сбросить все данные</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- LEAD MODAL -->
+<div class="modal-overlay" id="leadModal" style="display:none">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="leadModalTitle">Добавить лид</div>
+      <button class="modal-close" onclick="closeLeadModal()">×</button>
+    </div>
+    <form id="leadForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Компания</label>
+          <input type="text" class="form-input" id="lCompany" required placeholder="Brand Name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Контакт</label>
+          <input type="text" class="form-input" id="lContact" placeholder="Имя">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Email / Instagram</label>
+          <input type="text" class="form-input" id="lEmail" placeholder="email@brand.com или @handle">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Канал</label>
+          <select class="form-input form-select" id="lChannel">
+            <option value="email">Email</option>
+            <option value="instagram">Instagram DM</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="web">Web form</option>
+            <option value="referral">Referral</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ниша</label>
+          <select class="form-input form-select" id="lNiche">
+            <option value="skincare">Skincare / Beauty</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="fashion">Fashion / Apparel</option>
+            <option value="medspa">Med Spa / Aesthetics</option>
+            <option value="ecom">E-commerce DTC</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Статус</label>
+          <select class="form-input form-select" id="lStatus">
+            <option value="new">Новый</option>
+            <option value="outreach">Outreach отправлен</option>
+            <option value="followup">Follow-up</option>
+            <option value="meeting">Meeting</option>
+            <option value="won">Won</option>
+            <option value="lost">Lost</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Заметки</label>
+        <textarea class="form-input" rows="2" id="lNotes" placeholder="Детали, контекст..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" id="leadSubmitBtn">Сохранить</button>
+        <button type="button" class="btn btn-ghost" onclick="closeLeadModal()">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- PORTFOLIO MODAL -->
+<div class="modal-overlay" id="portfolioModal" style="display:none">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="portfolioModalTitle">Добавить кейс</div>
+      <button class="modal-close" onclick="closePortfolioModal()">×</button>
+    </div>
+    <form id="portfolioForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Название</label>
+          <input type="text" class="form-input" id="pTitle" required placeholder="Skincare Brand Launch">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Тег</label>
+          <select class="form-input form-select" id="pTag">
+            <option value="Reel">Reel</option>
+            <option value="Carousel">Carousel</option>
+            <option value="Product Visual">Product Visual</option>
+            <option value="Brand">Brand Identity</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">URL изображения</label>
+        <input type="url" class="form-input" id="pImage" placeholder="https:// или /portfolio/filename.jpg">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Имя файла (если загружен на сервер)</label>
+        <input type="text" class="form-input" id="pFile" placeholder="skincare-reel.jpg">
+        <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">Загрузить файл: scp file.jpg root@144.91.109.79:/root/vc-site/portfolio/</div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <button type="button" class="btn btn-ghost" onclick="closePortfolioModal()">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Mobile overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
