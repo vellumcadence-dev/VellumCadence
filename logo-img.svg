@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <!-- VC monogram mark -->
+  <g>
+    <!-- Diamond/gem shape as logomark -->
+    <polygon points="16,4 28,4 34,14 22,32 10,14" fill="none" stroke="#e2ff00" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="16,4 28,4 22,14" fill="#e2ff00" opacity="0.25"/>
+    <line x1="10" y1="14" x2="34" y2="14" stroke="#e2ff00" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="44" y="27" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="18" letter-spacing="-0.5" fill="#ffffff">Vellum<tspan fill="#e2ff00">Cadence</tspan></text>
+</svg>

@@ -2,7 +2,7 @@
 
 // ─── Client config (per-client, from backend in the future) ──────────────────
 const CLIENT = {
-  planName: 'Growth',   // matches packages.json name
+  planName: 'Pro',   // matches packages.json name
   renewalDate: '15 апреля 2026',
 };
 
@@ -50,8 +50,8 @@ const CALENDAR = [
 ];
 
 const INVOICES = [
-  { id: 'INV-001', date: '2026-03-01', desc: 'Growth Package — март 2026', amount: 1490, status: 'paid' },
-  { id: 'INV-002', date: '2026-04-01', desc: 'Growth Package — апрель 2026', amount: 1490, status: 'upcoming' },
+  { id: 'INV-001', date: '2026-03-01', desc: 'Pro Package — март 2026', amount: 1090, status: 'paid' },
+  { id: 'INV-002', date: '2026-04-01', desc: 'Pro Package — апрель 2026', amount: 1090, status: 'upcoming' },
 ];
 
 // ─── Routing ─────────────────────────────────────────────────────────────────
@@ -345,11 +345,11 @@ function initInvoices() {
     <div class="invoice-summary">
       <div class="inv-summary-card">
         <div class="inv-summary-label">Всего оплачено</div>
-        <div class="inv-summary-value green">$${paid.toLocaleString('en-US')}</div>
+        <div class="inv-summary-value green">€${paid.toLocaleString('en-US')}</div>
       </div>
       <div class="inv-summary-card">
         <div class="inv-summary-label">Следующий платёж</div>
-        <div class="inv-summary-value yellow">$${planPrice.toLocaleString('en-US')}</div>
+        <div class="inv-summary-value yellow">€${planPrice.toLocaleString('en-US')}</div>
       </div>
       <div class="inv-summary-card">
         <div class="inv-summary-label">Дата renewal</div>
@@ -369,7 +369,7 @@ function initInvoices() {
           <span class="inv-id">${inv.id}</span>
           <span class="inv-desc">${inv.desc}</span>
           <span class="inv-date">${formatDate(inv.date)}</span>
-          <span class="inv-amount inv-status-${inv.status}">$${inv.amount.toLocaleString('en-US')}</span>
+          <span class="inv-amount inv-status-${inv.status}">€${inv.amount.toLocaleString('en-US')}</span>
           <span class="inv-actions">
             ${inv.status === 'paid'
               ? `<button class="btn-pdf" onclick="downloadInvoice('${inv.id}')">PDF ↓</button>`
@@ -418,7 +418,7 @@ function renderPackageSection() {
   if (usageTop) {
     usageTop.querySelector('.pkg-usage-name').textContent = plan.name + ' Package';
     usageTop.querySelector('.pkg-usage-desc').textContent = `${totalItems} единиц контента · март 2026`;
-    usageTop.querySelector('.pkg-usage-price').innerHTML = `$${plan.price.toLocaleString('en-US')}<span class="pkg-per">/мес</span>`;
+    usageTop.querySelector('.pkg-usage-price').innerHTML = `€${plan.price.toLocaleString('en-US')}<span class="pkg-per">/мес</span>`;
   }
   const pLabels = document.querySelector('.progress-labels');
   if (pLabels) {
@@ -446,9 +446,9 @@ function renderPackageSection() {
       <div class="pkg-card ${isCurrent ? 'pkg-current' : ''}">
         ${isCurrent ? `<div class="pkg-badge">Ваш план</div>` : ''}
         <div class="pkg-card-name">${pkg.name}</div>
-        <div class="pkg-card-price">$${pkg.price.toLocaleString('en-US')}<span>/мес</span></div>
+        <div class="pkg-card-price">€${pkg.price.toLocaleString('en-US')}<span>/мес</span></div>
         <div class="pkg-card-units" style="font-size:.72rem;color:var(--text-dim);font-family:var(--mono);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)">
-          <span style="text-decoration:line-through;color:var(--text-muted)">$${pkg.originalPrice.toLocaleString('en-US')}</span>
+          <span style="text-decoration:line-through;color:var(--text-muted)">€${pkg.originalPrice.toLocaleString('en-US')}</span>
         </div>
         <ul class="pkg-features">
           ${pkg.features.map(f => `<li>${f.val ? `<strong>${f.val}</strong> ` : ''}${f.label}</li>`).join('')}
@@ -463,7 +463,7 @@ function renderDashboardRenewal() {
   const plan = PACKAGES.find(p => p.name === CLIENT.planName);
   if (!plan) return;
   const priceEl = document.querySelector('.renewal-price');
-  if (priceEl) priceEl.textContent = '$' + plan.price.toLocaleString('en-US');
+  if (priceEl) priceEl.textContent = '€' + plan.price.toLocaleString('en-US');
   const sub = document.querySelector('#s-dashboard .section-sub');
   if (sub) sub.textContent = `Март 2026 · ${plan.name} Package`;
   // sidebar user plan

@@ -135,8 +135,10 @@
       'form.bizPlaceholder': 'Select your industry', 'form.bizOpt1': 'E-commerce',
       'form.bizOpt2': 'Beauty & Wellness', 'form.bizOpt3': 'Fashion & Apparel',
       'form.bizOpt4': 'Med Spa & Aesthetics', 'form.bizOpt5': 'Jewelry & Accessories', 'form.bizOpt6': 'Lifestyle Brands', 'form.bizOpt7': 'Other',
-      'form.message': 'Message (optional)', 'form.submit': 'Send Message',
-      'form.successTitle': 'Message Sent!', 'form.successText': "We'll get back to you within 24 hours. Check your inbox!"
+      'form.website': 'Website / Instagram', 'form.goals': 'What are your main content goals?',
+      'form.budget': 'Monthly content budget', 'form.budgetPlaceholder': 'Select range', 'form.budgetUnsure': 'Not sure yet',
+      'form.submit': 'Get My Free Content Plan',
+      'form.successTitle': 'Brief Received!', 'form.successText': "Our AI agent is analyzing your niche. You'll receive your personalized content plan within 24 hours."
     },
     nl: {
       'nav.problem': 'Probleem', 'nav.solution': 'Oplossing', 'nav.portfolio': 'Portfolio',
@@ -215,8 +217,10 @@
       'form.bizPlaceholder': 'Selecteer uw sector', 'form.bizOpt1': 'E-commerce',
       'form.bizOpt2': 'Beauty & Wellness', 'form.bizOpt3': 'Fashion & Kleding',
       'form.bizOpt4': 'Med Spa & Aesthetics', 'form.bizOpt5': 'Sieraden & Accessoires', 'form.bizOpt6': 'Lifestyle Merken', 'form.bizOpt7': 'Anders',
-      'form.message': 'Bericht (optioneel)', 'form.submit': 'Verstuur Bericht',
-      'form.successTitle': 'Bericht Verzonden!', 'form.successText': 'We nemen binnen 24 uur contact met u op. Check uw inbox!'
+      'form.website': 'Website / Instagram', 'form.goals': 'Wat zijn uw belangrijkste contentdoelen?',
+      'form.budget': 'Maandelijks contentbudget', 'form.budgetPlaceholder': 'Selecteer bereik', 'form.budgetUnsure': 'Nog niet zeker',
+      'form.submit': 'Ontvang mijn gratis plan',
+      'form.successTitle': 'Brief Ontvangen!', 'form.successText': 'Onze AI-agent analyseert uw niche. U ontvangt uw gepersonaliseerd plan binnen 24 uur.'
     },
     de: {
       'nav.problem': 'Problem', 'nav.solution': 'Losung', 'nav.portfolio': 'Portfolio',
@@ -295,8 +299,10 @@
       'form.bizPlaceholder': 'Wahlen Sie Ihre Branche', 'form.bizOpt1': 'E-Commerce',
       'form.bizOpt2': 'Beauty & Wellness', 'form.bizOpt3': 'Fashion & Bekleidung',
       'form.bizOpt4': 'Med Spa & Aesthetik', 'form.bizOpt5': 'Schmuck & Accessoires', 'form.bizOpt6': 'Lifestyle Marken', 'form.bizOpt7': 'Sonstiges',
-      'form.message': 'Nachricht (optional)', 'form.submit': 'Nachricht Senden',
-      'form.successTitle': 'Nachricht Gesendet!', 'form.successText': 'Wir melden uns innerhalb von 24 Stunden bei Ihnen. Prufen Sie Ihren Posteingang!'
+      'form.website': 'Website / Instagram', 'form.goals': 'Was sind Ihre wichtigsten Content-Ziele?',
+      'form.budget': 'Monatliches Content-Budget', 'form.budgetPlaceholder': 'Bereich auswählen', 'form.budgetUnsure': 'Noch nicht sicher',
+      'form.submit': 'Meinen kostenlosen Plan erhalten',
+      'form.successTitle': 'Brief Erhalten!', 'form.successText': 'Unser KI-Agent analysiert Ihre Nische. Sie erhalten Ihren personalisierten Plan innerhalb von 24 Stunden.'
     },
     ru: {
       'nav.problem': 'Проблема', 'nav.solution': 'Решение', 'nav.portfolio': 'Портфолио',
@@ -375,8 +381,10 @@
       'form.bizPlaceholder': 'Выберите отрасль', 'form.bizOpt1': 'E-commerce',
       'form.bizOpt2': 'Красота и здоровье', 'form.bizOpt3': 'Мода и одежда',
       'form.bizOpt4': 'Med Spa и эстетика', 'form.bizOpt5': 'Украшения и аксессуары', 'form.bizOpt6': 'Lifestyle-бренды', 'form.bizOpt7': 'Другое',
-      'form.message': 'Сообщение (необязательно)', 'form.submit': 'Отправить',
-      'form.successTitle': 'Сообщение отправлено!', 'form.successText': 'Мы свяжемся с вами в течение 24 часов. Проверяйте почту!'
+      'form.website': 'Сайт / Instagram', 'form.goals': 'Каковы ваши основные цели по контенту?',
+      'form.budget': 'Ежемесячный бюджет на контент', 'form.budgetPlaceholder': 'Выберите диапазон', 'form.budgetUnsure': 'Ещё не знаю',
+      'form.submit': 'Получить бесплатный план',
+      'form.successTitle': 'Бриф получен!', 'form.successText': 'Наш AI-агент анализирует вашу нишу. Вы получите персонализированный план в течение 24 часов.'
     },
     uk: {
       'nav.problem': 'Проблема', 'nav.solution': 'Рішення', 'nav.portfolio': 'Портфоліо',
@@ -455,8 +463,10 @@
       'form.bizPlaceholder': 'Оберіть галузь', 'form.bizOpt1': 'E-commerce',
       'form.bizOpt2': 'Краса та здоров\'я', 'form.bizOpt3': 'Мода та одяг',
       'form.bizOpt4': 'Med Spa та естетика', 'form.bizOpt5': 'Прикраси та аксесуари', 'form.bizOpt6': 'Lifestyle-бренди', 'form.bizOpt7': 'Інше',
-      'form.message': 'Повідомлення (необов\'язково)', 'form.submit': 'Надіслати',
-      'form.successTitle': 'Повідомлення надіслано!', 'form.successText': 'Ми зв\'яжемось з вами протягом 24 годин. Перевіряйте пошту!'
+      'form.website': 'Сайт / Instagram', 'form.goals': 'Які ваші основні цілі щодо контенту?',
+      'form.budget': 'Щомісячний бюджет на контент', 'form.budgetPlaceholder': 'Оберіть діапазон', 'form.budgetUnsure': 'Ще не знаю',
+      'form.submit': 'Отримати безкоштовний план',
+      'form.successTitle': 'Бриф отримано!', 'form.successText': 'Наш AI-агент аналізує вашу нішу. Ви отримаєте персоналізований план протягом 24 годин.'
     },
     fr: {
       'nav.problem': 'Problème', 'nav.solution': 'Solution', 'nav.portfolio': 'Portfolio',
