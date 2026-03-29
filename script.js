@@ -17,7 +17,7 @@
         var html = items.map(function(item, i) {
           var isVideo = item.type === 'video';
           var media = isVideo
-            ? '<video src="' + item.src + '" preload="none" muted playsinline loop class="portfolio-img" style="width:100%;height:100%;object-fit:cover;" onmouseenter="this.play()" onmouseleave="this.pause()"></video>'
+            ? '<video src="' + item.src + '" preload="none" muted playsinline loop class="portfolio-img" style="width:100%;height:100%;object-fit:cover;"></video>'
             : '<img src="' + item.src + '" alt="' + item.title + '" loading="lazy" class="portfolio-img">';
           var grad = grads[i % grads.length];
           return '<div class="portfolio-item anim" data-category="' + item.category + '">' +
@@ -963,6 +963,36 @@
     setInterval(tick, 1000);
   }());
 
+
+  /* ── Hero video: fade-in after render ── */
+  (function initHeroVideo() {
+    var v = document.querySelector('.hero-video');
+    if (!v) return;
+    function showVideo() {
+      setTimeout(function() { v.classList.add('ready'); }, 300);
+    }
+    if (v.readyState >= 3) { showVideo(); }
+    else { v.addEventListener('canplay', showVideo, { once: true }); }
+  }());
+
+  /* ── Portfolio videos: delayed play on hover ── */
+  document.addEventListener('mouseover', function(e) {
+    var v = e.target.closest('.portfolio-item') && e.target.closest('.portfolio-item').querySelector('video');
+    if (!v) return;
+    if (v._playTimer) return;
+    v._playTimer = setTimeout(function() {
+      v.play();
+      v._playTimer = null;
+    }, 400);
+  });
+  document.addEventListener('mouseout', function(e) {
+    var item = e.target.closest('.portfolio-item');
+    if (!item) return;
+    var v = item.querySelector('video');
+    if (!v) return;
+    if (v._playTimer) { clearTimeout(v._playTimer); v._playTimer = null; }
+    v.pause();
+  });
 
   /* ── Init ── */
   applyLang(detectLanguage());

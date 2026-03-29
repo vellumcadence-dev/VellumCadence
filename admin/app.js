@@ -1,7 +1,7 @@
 /* ===== VellumCadence Admin Panel ===== */
 
 // ─── Auth ─────────────────────────────────────────────────────────────────────
-const DEFAULT_PASS = 'VC-admin-2026';
+const DEFAULT_PASS = 'VCadm!n#8472';
 const PASS_KEY = 'vc_admin_pass';
 const SESSION_KEY = 'vc_admin_session';
 
