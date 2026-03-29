@@ -123,7 +123,7 @@
       'faq.q3': 'Do we own the content you create?',
       'faq.a3': 'Yes, 100%. All content we create belongs to you. You receive full rights to use it across any platform, in ads, on your website — wherever you need it. No strings attached.',
       'faq.q4': 'Can we request revisions?',
-      'faq.a4': 'Absolutely. Each package includes revision rounds (1 for Starter, 2 for Growth, unlimited for Scale and Enterprise). We want you to be completely happy with every piece of content before it goes live.',
+      'faq.a4': 'Absolutely. Each package includes revision rounds (1 for Lite, 2 for Pro, unlimited for Premium). We want you to be completely happy with every piece of content before it goes live.',
       'faq.q5': 'What platforms do you create content for?',
       'faq.a5': 'We create content optimized for Instagram, TikTok, Facebook, LinkedIn, and YouTube Shorts. Each piece is formatted and sized correctly for the target platform to maximize engagement.',
       'faq.q6': 'Is there a minimum contract period?',
@@ -363,7 +363,7 @@
       'faq.q3': 'Принадлежит ли нам контент, который вы создаёте?',
       'faq.a3': 'Да, на 100%. Весь контент, который мы создаём, принадлежит вам. Вы получаете полные права использовать его на любой платформе, в рекламе, на сайте — везде, где нужно.',
       'faq.q4': 'Можно ли запрашивать правки?',
-      'faq.a4': 'Безусловно. Каждый пакет включает раунды правок (1 для Starter, 2 для Growth, без ограничений для Scale и Enterprise). Мы хотим, чтобы вы были полностью довольны каждым материалом.',
+      'faq.a4': 'Безусловно. Каждый пакет включает раунды правок (1 для Lite, 2 для Pro, без ограничений для Premium). Мы хотим, чтобы вы были полностью довольны каждым материалом.',
       'faq.q5': 'Для каких платформ вы создаёте контент?',
       'faq.a5': 'Мы создаём контент, оптимизированный для Instagram, TikTok, Facebook, LinkedIn и YouTube Shorts. Каждый материал правильно отформатирован для целевой платформы.',
       'faq.q6': 'Есть ли минимальный срок контракта?',
@@ -708,10 +708,19 @@
   /* ── Cursor glow (desktop) ── */
   var cursorGlow = document.getElementById('cursorGlow');
   if (window.matchMedia('(pointer: fine)').matches) {
+    var rafPending = false;
+    var cursorX = 0, cursorY = 0;
     document.addEventListener('mousemove', function (e) {
-      cursorGlow.style.left = e.clientX + 'px';
-      cursorGlow.style.top = e.clientY + 'px';
-      if (!cursorGlow.classList.contains('active')) cursorGlow.classList.add('active');
+      cursorX = e.clientX; cursorY = e.clientY;
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(function () {
+          cursorGlow.style.left = cursorX + 'px';
+          cursorGlow.style.top = cursorY + 'px';
+          if (!cursorGlow.classList.contains('active')) cursorGlow.classList.add('active');
+          rafPending = false;
+        });
+      }
     });
   }
 
@@ -719,11 +728,18 @@
   if (window.matchMedia('(pointer: fine)').matches) {
     var tiltCards = document.querySelectorAll('.tilt-card');
     tiltCards.forEach(function (card) {
+      var tiltRaf = false, tiltX = 0, tiltY = 0;
       card.addEventListener('mousemove', function (e) {
         var rect = card.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = 'perspective(800px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) scale(1.02)';
+        tiltX = (e.clientX - rect.left) / rect.width - 0.5;
+        tiltY = (e.clientY - rect.top) / rect.height - 0.5;
+        if (!tiltRaf) {
+          tiltRaf = true;
+          requestAnimationFrame(function () {
+            card.style.transform = 'perspective(800px) rotateY(' + (tiltX * 8) + 'deg) rotateX(' + (-tiltY * 8) + 'deg) scale(1.02)';
+            tiltRaf = false;
+          });
+        }
       });
       card.addEventListener('mouseleave', function () {
         card.style.transform = '';

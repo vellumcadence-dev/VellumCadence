@@ -6,13 +6,24 @@
   <title>VellumCadence — AI Content That Stops The Scroll</title>
   <meta name="description" content="AI-powered Reels and product visuals for skincare, jewelry, and fashion DTC brands. Done-for-you content system. First batch in 5 days.">
   <meta name="theme-color" content="#050508">
-  <link rel="icon" id="favicon-link" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Security meta tags -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.vellumcadence.com; frame-ancestors 'none';">
 
   <!-- Canonical & hreflang -->
   <link rel="canonical" href="https://vellumcadence.com/">
   <link rel="alternate" hreflang="en" href="https://vellumcadence.com/">
   <link rel="alternate" hreflang="nl" href="https://vellumcadence.com/?lang=nl">
   <link rel="alternate" hreflang="de" href="https://vellumcadence.com/?lang=de">
+  <link rel="alternate" hreflang="fr" href="https://vellumcadence.com/?lang=fr">
+  <link rel="alternate" hreflang="pl" href="https://vellumcadence.com/?lang=pl">
+  <link rel="alternate" hreflang="ru" href="https://vellumcadence.com/?lang=ru">
+  <link rel="alternate" hreflang="uk" href="https://vellumcadence.com/?lang=uk">
   <link rel="alternate" hreflang="x-default" href="https://vellumcadence.com/">
 
   <!-- Open Graph -->
@@ -145,7 +156,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Non-blocking Google Fonts load -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -559,7 +572,7 @@
         </div>
         <div class="faq-item glass anim">
           <button class="faq-q" data-i18n="faq.q4">Can we request revisions?</button>
-          <div class="faq-a"><p data-i18n="faq.a4">Absolutely. Each package includes revision rounds (1 for Starter, 2 for Growth, unlimited for Scale and Enterprise). We want you to be completely happy with every piece of content before it goes live.</p></div>
+          <div class="faq-a"><p data-i18n="faq.a4">Absolutely. Each package includes revision rounds (1 for Lite, 2 for Pro, unlimited for Premium). We want you to be completely happy with every piece of content before it goes live.</p></div>
         </div>
         <div class="faq-item glass anim">
           <button class="faq-q" data-i18n="faq.q5">What platforms do you create content for?</button>
@@ -670,6 +683,33 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+
+  <!-- Cookie Consent (GDPR) -->
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111118;border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="margin:0;color:rgba(255,255,255,0.7);font-size:13px;line-height:1.5;flex:1;min-width:200px;">
+      We use cookies to improve your experience and analyse site performance. By continuing, you agree to our
+      <a href="/privacy" style="color:#e2ff00;text-decoration:underline;">Privacy Policy</a>.
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="vcCookieDecline()" style="background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">Decline</button>
+      <button onclick="vcCookieAccept()" style="background:#e2ff00;border:none;color:#0d0d0d;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+    </div>
+  </div>
+  <script>
+  (function(){
+    if(!localStorage.getItem('vc_cookie_consent')){
+      document.getElementById('cookie-banner').style.display='flex';
+    }
+  })();
+  function vcCookieAccept(){
+    localStorage.setItem('vc_cookie_consent','accepted');
+    document.getElementById('cookie-banner').style.display='none';
+  }
+  function vcCookieDecline(){
+    localStorage.setItem('vc_cookie_consent','declined');
+    document.getElementById('cookie-banner').style.display='none';
+  }
+  </script>
 </body>
 </html>
