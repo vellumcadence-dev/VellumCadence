@@ -1007,4 +1007,23 @@
   /* ── Init ── */
   applyLang(detectLanguage());
 
+  /* ── Cookie Consent ── */
+  (function() {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    if (!localStorage.getItem('vc_cookie_consent')) {
+      banner.style.display = 'flex';
+    }
+    var accept = document.getElementById('cookie-accept');
+    var decline = document.getElementById('cookie-decline');
+    if (accept) accept.addEventListener('click', function() {
+      localStorage.setItem('vc_cookie_consent', 'accepted');
+      banner.style.display = 'none';
+    });
+    if (decline) decline.addEventListener('click', function() {
+      localStorage.setItem('vc_cookie_consent', 'declined');
+      banner.style.display = 'none';
+    });
+  })();
+
 })();

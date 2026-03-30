@@ -13,7 +13,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.vellumcadence.com; frame-ancestors 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.vellumcadence.com; frame-ancestors 'none';">
 
   <!-- Canonical & hreflang -->
   <link rel="canonical" href="https://vellumcadence.com/">
@@ -201,6 +201,7 @@
         <li><a href="#packages" data-i18n="nav.packages">Packages</a></li>
         <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#cta" class="nav-cta" data-i18n="nav.contact">Get Free Plan</a></li>
+        <li><a href="/client/" class="nav-portal" data-i18n="nav.portal">Client Portal</a></li>
       </ul>
       <!-- Language switcher -->
       <div class="lang-switcher" id="langSwitcher">
@@ -236,7 +237,7 @@
 
       <!-- ====== HERO VIDEO ====== -->
       <div class="hero-video-section anim">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline poster="/assets/lume-visual-1.webp">
           <source src="/assets/demo-reel.mp4" type="video/mp4">
         </video>
       </div>
@@ -412,21 +413,13 @@
           <img src="/assets/lume-visual-4.webp" alt="Skincare brand aesthetic — consistent AI content system for DTC" loading="lazy" class="portfolio-img">
           <div class="portfolio-overlay"><span class="portfolio-tag">Skincare · Carousel</span><span class="portfolio-title">Ingredient Story</span><button class="portfolio-open" data-src="/assets/lume-visual-4.webp">View</button></div>
         </div>
-        <div class="portfolio-item anim" data-category="beauty">
-          <img src="/assets/lume-visual-1.webp" alt="Med Spa aesthetics brand content — AI visuals for wellness brand" loading="lazy" class="portfolio-img">
-          <div class="portfolio-overlay"><span class="portfolio-tag">Med Spa · AI Visual</span><span class="portfolio-title">Brand Identity</span><button class="portfolio-open" data-src="/assets/lume-visual-1.webp">View</button></div>
-        </div>
-        <div class="portfolio-item anim" data-category="jewelry">
-          <img src="/assets/lume-visual-3.webp" alt="Lifestyle brand content — AI-powered social media visuals" loading="lazy" class="portfolio-img">
-          <div class="portfolio-overlay"><span class="portfolio-tag">Lifestyle · AI Visual</span><span class="portfolio-title">Mood Campaign</span><button class="portfolio-open" data-src="/assets/lume-visual-3.webp">View</button></div>
-        </div>
       </div>
 
       <!-- Lightbox -->
       <div class="lightbox" id="lightbox">
         <div class="lb-backdrop"></div>
         <div class="lb-content">
-          <button class="lb-close">&times;</button>
+          <button class="lb-close" aria-label="Close">&times;</button>
           <img class="lb-img" src="" alt="">
         </div>
       </div>
@@ -693,30 +686,15 @@
   <script src="script.js" defer></script>
 
   <!-- Cookie Consent (GDPR) -->
-  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111118;border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#111118;border-top:1px solid rgba(255,255,255,0.1);padding:16px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
     <p style="margin:0;color:rgba(255,255,255,0.7);font-size:13px;line-height:1.5;flex:1;min-width:200px;">
       We use cookies to improve your experience and analyse site performance. By continuing, you agree to our
       <a href="/privacy" style="color:#e2ff00;text-decoration:underline;">Privacy Policy</a>.
     </p>
     <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button onclick="vcCookieDecline()" style="background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">Decline</button>
-      <button onclick="vcCookieAccept()" style="background:#e2ff00;border:none;color:#0d0d0d;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
+      <button id="cookie-decline" style="background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;">Decline</button>
+      <button id="cookie-accept" style="background:#e2ff00;border:none;color:#0d0d0d;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Accept</button>
     </div>
   </div>
-  <script>
-  (function(){
-    if(!localStorage.getItem('vc_cookie_consent')){
-      document.getElementById('cookie-banner').style.display='flex';
-    }
-  })();
-  function vcCookieAccept(){
-    localStorage.setItem('vc_cookie_consent','accepted');
-    document.getElementById('cookie-banner').style.display='none';
-  }
-  function vcCookieDecline(){
-    localStorage.setItem('vc_cookie_consent','declined');
-    document.getElementById('cookie-banner').style.display='none';
-  }
-  </script>
 </body>
 </html>
