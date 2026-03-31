@@ -154,6 +154,9 @@
   }
   </script>
 
+  <!-- Preload critical hero image (LCP) -->
+  <link rel="preload" as="image" href="/assets/lume-visual-1.webp">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Non-blocking Google Fonts load -->
@@ -185,7 +188,7 @@
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- Navigation -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="#" class="nav-logo" id="nav-logo">
         <img id="logo-img" src="/logo-img.svg" alt="VellumCadence" style="display:none;height:36px;" onerror="this.style.display='none';" onload="this.style.display='inline-block';document.getElementById('logo-text').style.display='none';">
@@ -237,7 +240,7 @@
 
       <!-- ====== HERO VIDEO ====== -->
       <div class="hero-video-section anim">
-        <video class="hero-video" autoplay muted loop playsinline poster="/assets/lume-visual-1.webp">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" width="420" height="747" poster="/assets/lume-visual-1.webp">
           <source src="/assets/demo-reel.mp4" type="video/mp4">
         </video>
       </div>
@@ -420,7 +423,7 @@
         <div class="lb-backdrop"></div>
         <div class="lb-content">
           <button class="lb-close" aria-label="Close">&times;</button>
-          <img class="lb-img" src="" alt="">
+          <img class="lb-img" src="" alt="" loading="lazy">
         </div>
       </div>
     </div>
