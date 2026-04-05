@@ -916,7 +916,7 @@
         .catch(function () {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Get My Free Content Plan';
+            submitBtn.textContent = (T[currentLang] && T[currentLang]['form.submit']) || 'Get My Free Content Plan';
           }
           alert('Something went wrong. Please try again.');
         });
